@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Terê Studio · Sistema para lojas de personalizados</title>
+  <meta name="description" content="Landing page oficial do Terê Studio: sistema para atendimento, pedidos, personalização, mockups, estoque, caixa, totem e licenças." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#topo" aria-label="Terê Studio">
+      <img src="assets/img/tere-studio-logo.png" alt="Terê Studio" />
+      <span>Terê Studio</span>
+    </a>
+    <nav class="nav">
+      <a href="#beneficios">Benefícios</a>
+      <a href="#modulos">Módulos</a>
+      <a href="#planos">Planos</a>
+      <a href="recuperar-licenca.html">Suporte</a>
+    </nav>
+    <a class="header-cta" data-support-link href="#">WhatsApp</a>
+  </header>
+
+  <main id="topo">
+    <section class="hero section-shell">
+      <div class="hero-copy">
+        <span class="eyebrow">Sistema oficial · Terê Studio</span>
+        <h1 data-config="headline">O sistema premium para vender, personalizar e produzir joias fotogravadas com mais controle.</h1>
+        <p data-config="subheadline">Atendimento, pedidos, mockups, projetos, estoque, caixa, totem e licenças em uma operação pensada para lojas de personalizados.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#planos" data-config="primaryCta">Escolher plano</a>
+          <a class="btn btn-secondary" data-support-link href="#" data-config="secondaryCta">Falar no WhatsApp</a>
+        </div>
+        <div class="trust-row">
+          <span>Landing independente do executável</span>
+          <span>Licenças online</span>
+          <span>Preparado para venda real</span>
+        </div>
+      </div>
+      <div class="hero-card" aria-label="Prévia do Terê Studio">
+        <div class="window-bar"><span></span><span></span><span></span></div>
+        <div class="dashboard-preview">
+          <div>
+            <small>Hoje</small>
+            <strong>Pedidos em produção</strong>
+            <b>18</b>
+          </div>
+          <div>
+            <small>Personalização</small>
+            <strong>Mockups salvos</strong>
+            <b>124</b>
+          </div>
+          <div>
+            <small>Licença</small>
+            <strong>Status</strong>
+            <b>Ativa</b>
+          </div>
+        </div>
+        <div class="mock-editor">
+          <div class="mock-circle">Sua foto aqui</div>
+          <div class="mock-lines"><span></span><span></span><span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="beneficios" class="section-shell split-section">
+      <div>
+        <span class="eyebrow">Por que usar</span>
+        <h2>Menos improviso, mais loja funcionando.</h2>
+        <p>O Terê Studio foi pensado para quem vende personalizados e precisa transformar atendimento, arte, produção e controle financeiro em um fluxo simples.</p>
+      </div>
+      <div class="benefit-grid">
+        <article><strong>Venda com clareza</strong><p>Cliente, produto, pedido e personalização conectados no mesmo fluxo.</p></article>
+        <article><strong>Produza mais rápido</strong><p>Mockups, projetos e arquivos de produção sem depender de pastas bagunçadas.</p></article>
+        <article><strong>Controle a operação</strong><p>Estoque, caixa, relatórios e licenças com dados essenciais na mão.</p></article>
+        <article><strong>Atenda melhor</strong><p>Totem, pedido online e suporte preparados para uma experiência mais profissional.</p></article>
+      </div>
+    </section>
+
+    <section id="modulos" class="section-shell">
+      <div class="section-title">
+        <span class="eyebrow">Módulos</span>
+        <h2>O básico do dia a dia e o avançado quando a loja cresce.</h2>
+      </div>
+      <div class="module-grid">
+        <article><span>01</span><h3>Atendimento e pedidos</h3><p>Cadastro de cliente, produtos, carrinho e organização do pedido.</p></article>
+        <article><span>02</span><h3>Personalização</h3><p>Frente, verso, texto, foto, Spotify Code e preparação para produção.</p></article>
+        <article><span>03</span><h3>Projetos e mockups</h3><p>Mockups por produto/cor e editor visual para vender com prévia bonita.</p></article>
+        <article><span>04</span><h3>Totem</h3><p>Autoatendimento em tablet para o cliente montar a personalização.</p></article>
+        <article><span>05</span><h3>Estoque e caixa</h3><p>Controle de produtos, movimentações, vendas e fechamento.</p></article>
+        <article><span>06</span><h3>Licenças online</h3><p>Ativação, status, validade e limites por plano direto no servidor.</p></article>
+      </div>
+    </section>
+
+    <section id="planos" class="section-shell plans-section">
+      <div class="section-title center">
+        <span class="eyebrow">Planos</span>
+        <h2>Escolha o plano ideal para sua operação.</h2>
+        <p>Os valores e recursos podem ser atualizados na landing ou no servidor de licenças sem gerar um novo instalador.</p>
+      </div>
+      <div id="plansGrid" class="plans-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="section-shell flow-section">
+      <div class="section-title">
+        <span class="eyebrow">Compra e licença</span>
+        <h2>Fluxo preparado para venda automática.</h2>
+      </div>
+      <div class="flow-grid">
+        <article><b>1</b><h3>Cliente escolhe o plano</h3><p>A landing cria um pedido no servidor de licenças.</p></article>
+        <article><b>2</b><h3>Pagamento aprovado</h3><p>O webhook confirma o pagamento e gera a licença.</p></article>
+        <article><b>3</b><h3>Licença exibida uma vez</h3><p>A tela de sucesso usa token temporário e não expõe a licença na URL.</p></article>
+        <article><b>4</b><h3>Ativação no app</h3><p>O cliente baixa o Terê Studio e cola a licença na tela de ativação.</p></article>
+      </div>
+    </section>
+
+    <section class="section-shell support-band">
+      <div>
+        <span class="eyebrow">Suporte e recuperação</span>
+        <h2>Perdeu a licença? A recuperação acontece pelo suporte.</h2>
+        <p>Por segurança, não existe botão de recuperação direto dentro do aplicativo. O cliente entra em contato e a licença é localizada pelo servidor.</p>
+      </div>
+      <div class="support-actions">
+        <a class="btn btn-primary" href="recuperar-licenca.html">Recuperar via suporte</a>
+        <a class="btn btn-secondary" data-support-link href="#">Falar no WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <div id="checkoutModal" class="modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+      <button class="modal-close" type="button" data-close-modal aria-label="Fechar">×</button>
+      <span class="eyebrow">Contratar plano</span>
+      <h2 id="checkoutTitle">Finalize seus dados</h2>
+      <p id="checkoutPlanInfo">Você será direcionado para o pagamento seguro.</p>
+      <form id="checkoutForm" class="checkout-form">
+        <input type="hidden" name="planId" />
+        <input type="hidden" name="cycleId" />
+        <label>Nome do responsável<input name="nome" required minlength="3" autocomplete="name" /></label>
+        <label>Nome da loja<input name="loja" required minlength="2" autocomplete="organization" /></label>
+        <label>WhatsApp com DDD<input name="whatsapp" required inputmode="tel" autocomplete="tel" /></label>
+        <label>E-mail<input name="email" required type="email" autocomplete="email" /></label>
+        <label>CPF opcional<input name="cpf" inputmode="numeric" autocomplete="off" /></label>
+        <button class="btn btn-primary full" type="submit">Ir para pagamento</button>
+        <p class="form-message" id="checkoutMessage"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="assets/js/main.js" type="module"></script>
+</body>
+</html>

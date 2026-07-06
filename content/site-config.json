@@ -1,0 +1,13 @@
+{
+  "brandName": "Terê Studio",
+  "headline": "O sistema premium para vender, personalizar e produzir joias fotogravadas com mais controle.",
+  "subheadline": "Atendimento, pedidos, mockups, projetos, estoque, caixa, totem e licenças em uma operação pensada para lojas de personalizados.",
+  "licenseServerUrl": "https://li.terepersonalizados.com.br/api",
+  "downloadUrl": "https://terestudio.terepersonalizados.com.br/download/tere-studio-installer.exe",
+  "supportWhatsappUrl": "https://wa.me/5535999798012",
+  "supportWhatsappText": "Olá! Preciso de suporte com minha licença do Terê Studio.",
+  "purchaseWhatsappText": "Olá! Quero contratar o Terê Studio.",
+  "primaryCta": "Escolher plano",
+  "secondaryCta": "Falar no WhatsApp",
+  "securityNotice": "Por segurança, sua licença será exibida somente aqui esta única vez. Guarde em local seguro."
+}
