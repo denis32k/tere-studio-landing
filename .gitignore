@@ -1,0 +1,9 @@
+downloads/Tere-Studio-1.0.0-x64.exe
+*.exe
+*.msi
+*.zip
+*.7z
+*.rar
+/download/
+dist/
+node_modules/
