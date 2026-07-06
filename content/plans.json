@@ -1,0 +1,55 @@
+[
+  {
+    "id": "inicial",
+    "nome": "Inicial",
+    "preco": "Sob consulta",
+    "descricao": "Para começar a organizar pedidos, clientes, produtos, estoque e caixa.",
+    "destaque": "1 computador e operação essencial.",
+    "features": ["Atendimento e pedidos", "Clientes e produtos", "Estoque e caixa", "Projetos e mockups essenciais"],
+    "billingCycles": [
+      { "id": "mensal", "label": "1 mês", "months": 1, "preco": "Sob consulta" },
+      { "id": "semestral", "label": "6 meses", "months": 6, "preco": "Sob consulta" },
+      { "id": "anual", "label": "1 ano", "months": 12, "preco": "Sob consulta" }
+    ],
+    "buttonLabel": "Comprar Inicial"
+  },
+  {
+    "id": "profissional",
+    "nome": "Profissional",
+    "preco": "Sob consulta",
+    "descricao": "Para loja que quer ganhar velocidade com IA Local, mockups e autoatendimento.",
+    "destaque": "Plano recomendado para loja em operação.",
+    "featured": true,
+    "features": ["Até 2 computadores", "IA Local para fotos", "Totem de autoatendimento", "Remove.bg e produção mais rápida"],
+    "billingCycles": [
+      { "id": "mensal", "label": "1 mês", "months": 1, "preco": "Sob consulta" },
+      { "id": "semestral", "label": "6 meses", "months": 6, "preco": "Sob consulta" },
+      { "id": "anual", "label": "1 ano", "months": 12, "preco": "Sob consulta", "featured": true }
+    ],
+    "buttonLabel": "Comprar Profissional"
+  },
+  {
+    "id": "avancado",
+    "nome": "Avançado",
+    "preco": "Sob consulta",
+    "descricao": "Para operação maior, com mais dispositivos, relatórios e recursos avançados.",
+    "destaque": "Mais PCs, mais totens e visão gerencial.",
+    "features": ["Até 5 computadores", "Até 3 totens", "Pedido online", "Relatórios avançados"],
+    "billingCycles": [
+      { "id": "mensal", "label": "1 mês", "months": 1, "preco": "Sob consulta" },
+      { "id": "semestral", "label": "6 meses", "months": 6, "preco": "Sob consulta" },
+      { "id": "anual", "label": "1 ano", "months": 12, "preco": "Sob consulta" }
+    ],
+    "buttonLabel": "Comprar Avançado"
+  },
+  {
+    "id": "personalizado",
+    "nome": "Personalizado",
+    "preco": "Sob consulta",
+    "descricao": "Para redes, white label, implantação guiada ou necessidades especiais.",
+    "destaque": "Projeto sob medida.",
+    "features": ["Condições personalizadas", "Ajustes por operação", "Suporte de implantação", "Escala para mais unidades"],
+    "buttonLabel": "Falar sobre Personalizado",
+    "supportOnly": true
+  }
+]
