@@ -37,23 +37,22 @@ function planCycles(plan) {
 function renderPlan(plan) {
   const features = Array.isArray(plan.features) ? plan.features : [];
   const supportOnly = plan.supportOnly || plan.id === 'personalizado';
-  const buttonLabel = plan.buttonLabel || (supportOnly ? 'Falar com suporte' : `Comprar ${plan.nome}`);
   const cycles = planCycles(plan);
   const priceText = cycles[0]?.preco || plan.preco || 'Sob consulta';
   return `
     <article class="plan-card ${plan.featured ? 'featured' : ''}">
       ${plan.featured ? '<span class="plan-badge">Mais escolhido</span>' : ''}
       <h3>${escapeHtml(plan.nome || '')}</h3>
-      <div class="plan-price">${escapeHtml(priceText)}</div>
+      <div class="plan-price"><small>a partir de</small>${escapeHtml(priceText)}</div>
       <p>${escapeHtml(plan.descricao || '')}</p>
       ${plan.destaque ? `<p><strong>${escapeHtml(plan.destaque)}</strong></p>` : ''}
       <ul>${features.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
-      ${supportOnly ? '' : `<div class="billing-cycle-list">${cycles.map(cycle => `
+      ${supportOnly ? '' : `<div class="billing-cycle-list" aria-label="Períodos disponíveis">${cycles.map(cycle => `
         <button class="cycle-option ${cycle.featured ? 'cycle-featured' : ''}" type="button" data-buy-plan="${escapeAttr(plan.id)}" data-cycle-id="${escapeAttr(cycle.id || 'mensal')}" data-support-only="0">
           <span>${escapeHtml(cycle.label || '1 mês')}</span>
           <strong>${escapeHtml(cycle.preco || 'Sob consulta')}</strong>
         </button>`).join('')}</div>`}
-      <button class="btn btn-primary" type="button" data-buy-plan="${escapeAttr(plan.id)}" data-cycle-id="${escapeAttr(cycles[0]?.id || 'mensal')}" data-support-only="${supportOnly ? '1' : '0'}">${escapeHtml(buttonLabel)}</button>
+      <button class="btn btn-primary" type="button" data-buy-plan="${escapeAttr(plan.id)}" data-cycle-id="${escapeAttr(cycles[0]?.id || 'mensal')}" data-support-only="${supportOnly ? '1' : '0'}">${escapeHtml(supportOnly ? 'Falar com suporte' : 'Selecionar plano')}</button>
     </article>`;
 }
 function escapeHtml(value) {
@@ -65,31 +64,47 @@ const plans = await loadPlans();
 const grid = document.getElementById('plansGrid');
 if (grid) grid.innerHTML = plans.map(renderPlan).join('');
 
-const modal = document.getElementById('checkoutModal');
+const checkoutSection = document.getElementById('checkout');
 const form = document.getElementById('checkoutForm');
 const message = document.getElementById('checkoutMessage');
 const planInfo = document.getElementById('checkoutPlanInfo');
+const summaryTitle = document.getElementById('checkoutSummaryTitle');
+const summaryText = document.getElementById('checkoutSummaryText');
+const summaryPrice = document.getElementById('checkoutSummaryPrice');
+const summaryCycle = document.getElementById('checkoutSummaryCycle');
+const summaryFeatures = document.getElementById('checkoutSummaryFeatures');
 let selectedPlan = null;
 let selectedCycle = null;
 
-document.addEventListener('click', ev => {
-  const close = ev.target.closest('[data-close-modal]');
-  if (close) { modal.hidden = true; return; }
-  const btn = ev.target.closest('[data-buy-plan]');
-  if (!btn) return;
-  selectedPlan = plans.find(p => String(p.id) === String(btn.dataset.buyPlan));
-  if (!selectedPlan) return;
-  selectedCycle = planCycles(selectedPlan).find(c => String(c.id) === String(btn.dataset.cycleId)) || planCycles(selectedPlan)[0] || { id: 'mensal', label: '1 mês', months: 1 };
-  if (btn.dataset.supportOnly === '1' || selectedPlan.supportOnly) {
-    window.location.href = whatsappUrl(CONFIG.supportWhatsappUrl, `${CONFIG.purchaseWhatsappText || 'Olá! Quero contratar o Terê Studio.'}\nPlano: ${selectedPlan.nome}`);
-    return;
-  }
+function showCheckout(plan, cycle) {
+  selectedPlan = plan;
+  selectedCycle = cycle;
   form.planId.value = selectedPlan.id;
   if (form.cycleId) form.cycleId.value = selectedCycle.id || 'mensal';
-  planInfo.textContent = `Plano ${selectedPlan.nome} · ${selectedCycle.label || '1 mês'}${selectedCycle.preco ? ' · ' + selectedCycle.preco : ''}. Você será direcionado para o pagamento seguro.`;
+  summaryTitle.textContent = selectedPlan.nome || 'Plano selecionado';
+  summaryText.textContent = selectedPlan.destaque || selectedPlan.descricao || 'Plano Terê Studio';
+  summaryPrice.textContent = selectedCycle.preco || selectedPlan.preco || 'Sob consulta';
+  summaryCycle.textContent = selectedCycle.label || '1 mês';
+  planInfo.textContent = `Plano ${selectedPlan.nome} · ${selectedCycle.label || '1 mês'}${selectedCycle.preco ? ' · ' + selectedCycle.preco : ''}. Você será enviado ao Mercado Pago.`;
+  const features = Array.isArray(selectedPlan.features) ? selectedPlan.features : [];
+  summaryFeatures.innerHTML = features.slice(0, 6).map(item => `<span>${escapeHtml(item)}</span>`).join('');
   message.textContent = '';
-  modal.hidden = false;
-  setTimeout(() => form.nome?.focus(), 60);
+  checkoutSection.hidden = false;
+  checkoutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  setTimeout(() => form.nome?.focus({ preventScroll: true }), 350);
+}
+
+document.addEventListener('click', ev => {
+  const btn = ev.target.closest('[data-buy-plan]');
+  if (!btn) return;
+  const plan = plans.find(p => String(p.id) === String(btn.dataset.buyPlan));
+  if (!plan) return;
+  const cycle = planCycles(plan).find(c => String(c.id) === String(btn.dataset.cycleId)) || planCycles(plan)[0] || { id: 'mensal', label: '1 mês', months: 1 };
+  if (btn.dataset.supportOnly === '1' || plan.supportOnly) {
+    window.location.href = whatsappUrl(CONFIG.supportWhatsappUrl, `${CONFIG.purchaseWhatsappText || 'Olá! Quero contratar o Terê Studio.'}\nPlano: ${plan.nome}`);
+    return;
+  }
+  showCheckout(plan, cycle);
 });
 
 form?.addEventListener('submit', async ev => {
@@ -110,7 +125,7 @@ form?.addEventListener('submit', async ev => {
       documento: fd.get('cpf')
     }
   };
-  message.textContent = 'Criando pedido seguro...';
+  message.textContent = 'Criando pedido seguro no servidor...';
   const submit = form.querySelector('button[type="submit"]');
   submit.disabled = true;
   try {
@@ -122,10 +137,11 @@ form?.addEventListener('submit', async ev => {
     const json = await resp.json().catch(() => ({}));
     if (!resp.ok || json.ok === false) throw new Error(json.error || 'Não foi possível iniciar a compra.');
     if (json.checkoutMode === 'configure_payment_provider') {
-      message.textContent = 'Pedido registrado. O pagamento automático ainda precisa ser configurado no servidor. Abrindo suporte.';
+      message.textContent = 'O Mercado Pago ainda não foi configurado no servidor. Abrindo suporte para finalizar manualmente.';
       window.location.href = whatsappUrl(CONFIG.supportWhatsappUrl, `${CONFIG.purchaseWhatsappText || 'Olá! Quero contratar o Terê Studio.'}\nPlano: ${selectedPlan.nome}\nDuração: ${selectedCycle?.label || '1 mês'}\nPedido: ${json.orderId}`);
       return;
     }
+    message.textContent = 'Redirecionando para o Mercado Pago...';
     window.location.href = json.checkoutUrl || json.successUrl || 'sucesso.html?pedido=' + encodeURIComponent(json.orderId);
   } catch (err) {
     message.textContent = err instanceof Error ? err.message : 'Não foi possível iniciar a compra.';

@@ -38,7 +38,7 @@
         <div class="trust-row">
           <span>Landing independente do executável</span>
           <span>Licenças online</span>
-          <span>Preparado para venda real</span>
+          <span>Pagamento seguro Mercado Pago</span>
         </div>
       </div>
       <div class="hero-card" aria-label="Prévia do Terê Studio">
@@ -100,9 +100,51 @@
       <div class="section-title center">
         <span class="eyebrow">Planos</span>
         <h2>Escolha o plano ideal para sua operação.</h2>
-        <p>Os valores e recursos podem ser atualizados na landing ou no servidor de licenças sem gerar um novo instalador.</p>
+        <p>Escolha primeiro o plano e depois o período. O pagamento é processado pelo Mercado Pago e a licença é gerada automaticamente após aprovação.</p>
       </div>
       <div id="plansGrid" class="plans-grid" aria-live="polite"></div>
+    </section>
+
+    <section id="checkout" class="section-shell checkout-section" hidden>
+      <div class="checkout-premium">
+        <aside class="checkout-summary-card">
+          <span class="eyebrow">Resumo da contratação</span>
+          <h2 id="checkoutSummaryTitle">Plano selecionado</h2>
+          <p id="checkoutSummaryText">Revise o plano antes de seguir para o pagamento seguro.</p>
+          <div class="checkout-total-box">
+            <small>Total selecionado</small>
+            <strong id="checkoutSummaryPrice">—</strong>
+            <span id="checkoutSummaryCycle">—</span>
+          </div>
+          <div id="checkoutSummaryFeatures" class="checkout-feature-list"></div>
+          <div class="checkout-seal-row">
+            <span>Pagamento seguro</span>
+            <strong>Mercado Pago</strong>
+          </div>
+          <p class="checkout-note">Depois do pagamento aprovado, você volta para a página de sucesso e a licença aparece somente uma vez.</p>
+        </aside>
+
+        <form id="checkoutForm" class="checkout-form checkout-inline-form">
+          <input type="hidden" name="planId" />
+          <input type="hidden" name="cycleId" />
+          <div class="checkout-form-head">
+            <span class="eyebrow">Dados para ativação</span>
+            <h2>Finalizar contratação</h2>
+            <p id="checkoutPlanInfo">Preencha os dados para gerar seu pedido com segurança.</p>
+          </div>
+          <div class="form-grid two">
+            <label>Nome do responsável<input name="nome" required minlength="3" autocomplete="name" placeholder="Ex.: Denis Araújo" /></label>
+            <label>Nome da loja<input name="loja" required minlength="2" autocomplete="organization" placeholder="Ex.: Terê Personalizados" /></label>
+          </div>
+          <div class="form-grid two">
+            <label>WhatsApp com DDD<input name="whatsapp" required inputmode="tel" autocomplete="tel" placeholder="Ex.: 35 99999-9999" /></label>
+            <label>E-mail<input name="email" required type="email" autocomplete="email" placeholder="Ex.: contato@sualoja.com" /></label>
+          </div>
+          <label>CPF opcional<input name="cpf" inputmode="numeric" autocomplete="off" placeholder="Opcional" /></label>
+          <button class="btn btn-primary full" type="submit">Ir para pagamento seguro</button>
+          <p class="form-message" id="checkoutMessage"></p>
+        </form>
+      </div>
     </section>
 
     <section class="section-shell flow-section">
@@ -130,26 +172,6 @@
       </div>
     </section>
   </main>
-
-  <div id="checkoutModal" class="modal" hidden>
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
-      <button class="modal-close" type="button" data-close-modal aria-label="Fechar">×</button>
-      <span class="eyebrow">Contratar plano</span>
-      <h2 id="checkoutTitle">Finalize seus dados</h2>
-      <p id="checkoutPlanInfo">Você será direcionado para o pagamento seguro.</p>
-      <form id="checkoutForm" class="checkout-form">
-        <input type="hidden" name="planId" />
-        <input type="hidden" name="cycleId" />
-        <label>Nome do responsável<input name="nome" required minlength="3" autocomplete="name" /></label>
-        <label>Nome da loja<input name="loja" required minlength="2" autocomplete="organization" /></label>
-        <label>WhatsApp com DDD<input name="whatsapp" required inputmode="tel" autocomplete="tel" /></label>
-        <label>E-mail<input name="email" required type="email" autocomplete="email" /></label>
-        <label>CPF opcional<input name="cpf" inputmode="numeric" autocomplete="off" /></label>
-        <button class="btn btn-primary full" type="submit">Ir para pagamento</button>
-        <p class="form-message" id="checkoutMessage"></p>
-      </form>
-    </div>
-  </div>
 
   <script src="assets/js/main.js" type="module"></script>
 </body>
