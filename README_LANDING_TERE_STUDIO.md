@@ -82,3 +82,8 @@ Adiciona movimento suave, brilho no topo, microinterações, entrada de seções
 
 ## RC61.9
 Valores visíveis nos planos e fallback corrigido. Os preços são provisórios e devem ser confirmados no servidor/painel antes de publicar.
+
+
+## RC61.10
+
+Refino visual quadrado: sem cantos arredondados em botões/cards/chips e tipografia Sora + Cormorant Garamond. Não altera servidor de licenças.
