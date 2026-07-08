@@ -68,3 +68,8 @@ Esta versão melhora a seção de planos para parecer uma página real de SaaS:
 - linguagem final para lojista, sem bastidor.
 
 A landing continua buscando planos no servidor de licenças antes de usar `content/plans.json` como fallback.
+
+
+## RC61.6 — Refino visual premium
+
+Refino visual aplicado em cima da RC61.5 para deixar a landing com aparência mais profissional, limpa e SaaS real, principalmente nos planos.

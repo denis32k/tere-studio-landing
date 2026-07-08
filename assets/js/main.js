@@ -179,7 +179,8 @@ function priceMarkupFor(plan, cycle, supportOnly) {
 
 function renderPlan(plan) {
   const features = Array.isArray(plan.features) ? plan.features : [];
-  const supportOnly = plan.supportOnly || plan.id === 'personalizado';
+  const planIdentity = normalizeCycleId(`${plan.id || ''} ${plan.nome || ''} ${plan.label || ''}`);
+  const supportOnly = Boolean(plan.supportOnly) || planIdentity.includes('personalizado') || planIdentity.includes('sob_medida') || /personalizado|sob medida|implantação guiada/i.test(`${plan.nome || ''} ${plan.label || ''} ${plan.audience || ''}`);
   const cycle = supportOnly ? null : selectedCycleFor(plan);
   const buttonLabel = plan.buttonLabel || (supportOnly ? 'Falar com suporte' : 'Começar agora');
   const featured = Boolean(plan.featured) && !supportOnly;
