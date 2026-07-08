@@ -3,8 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Terê Studio · Software completo para negócios de beleza e bem-estar</title>
-  <meta name="description" content="Terê Studio é o software premium para vender, personalizar, organizar clientes, controlar financeiro, estoque, projetos, totem e licenças online." />
+  <title>Terê Studio · Sistema para usar na rotina da sua loja de personalizados</title>
+  <meta name="description" content="Use o Terê Studio para organizar atendimento, pedidos, clientes, mockups, produção, estoque, caixa, totem e licenças na sua loja de personalizados." />
+  <meta property="og:title" content="Terê Studio · Sistema para lojas de personalizados" />
+  <meta property="og:description" content="Uma rotina mais organizada para sua loja de personalizados: atendimento, pedidos, mockups, produção, caixa, estoque, totem e licenças online." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/tere-studio-logo.png" />
+  <meta name="theme-color" content="#061427" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
@@ -16,16 +21,16 @@
       <img src="assets/img/tere-studio-logo.png" alt="Terê Studio" />
       <span>Terê <small>Studio</small></span>
     </a>
-    <button class="menu-toggle" type="button" aria-label="Abrir menu">☰</button>
+    <button class="menu-toggle" type="button" aria-label="Abrir menu" aria-expanded="false">☰</button>
     <nav class="nav" aria-label="Navegação principal">
-      <a href="#beneficios">Recursos</a>
+      <a href="#beneficios">Rotina</a>
       <a href="#modulos">Módulos</a>
+      <a href="#por-dentro">Telas</a>
       <a href="#planos">Planos</a>
-      <a href="#depoimentos">Depoimentos</a>
+      <a href="#faq">Dúvidas</a>
       <a href="#suporte">Suporte</a>
-      <a href="#novidades">Blog</a>
     </nav>
-    <a class="header-cta" href="#planos">Teste grátis por 7 dias <span>→</span></a>
+    <a class="header-cta" href="#planos"><span data-config="primaryCta">Começar teste grátis</span> <span>→</span></a>
   </header>
 
   <main>
@@ -33,63 +38,62 @@
       <div class="section-shell hero-grid">
         <div class="hero-copy">
           <span class="eyebrow">Terê Studio</span>
-          <h1>O software completo para o seu negócio <em>beleza e bem-estar</em></h1>
-          <p>Gestão inteligente, mais tempo para o que importa e clientes que voltam sempre.</p>
+          <h1><span data-config="headline">O Terê Studio para usar na rotina da sua loja</span></h1>
+          <p data-config="subheadline">Use o Terê Studio para cuidar do atendimento, pedidos, mockups, produção, estoque, caixa, totem e licenças em um só lugar.</p>
           <div class="hero-actions">
-            <a class="btn btn-gold" href="#planos">Teste grátis por 7 dias <span>→</span></a>
-            <a class="btn btn-outline" href="#planos">Ver planos</a>
+            <a class="btn btn-gold" href="#planos"><span data-config="primaryCta">Começar teste grátis</span> <span>→</span></a>
+            <a class="btn btn-outline" href="#por-dentro" data-config="secondaryCta">Ver as telas do sistema</a>
           </div>
           <div class="hero-trust">
-            <span><b>✓</b><strong>Setup rápido</strong><small>Comece em minutos</small></span>
-            <span><b>◇</b><strong>Seguro e confiável</strong><small>Seus dados protegidos</small></span>
-            <span><b>♡</b><strong>Suporte que acolhe</strong><small>Atendimento humano</small></span>
+            <span><b>✓</b><strong>Feito para personalizados</strong><small>Pedido, mockup e produção no mesmo fluxo</small></span>
+            <span><b>◇</b><strong>Licença por máquina</strong><small>PC principal, PC cliente e controle online</small></span>
+            <span><b>✦</b><strong>Visual profissional</strong><small>Mais organização para trabalhar com confiança</small></span>
           </div>
         </div>
 
         <div class="dashboard-card" aria-label="Prévia visual do Terê Studio">
           <aside class="dash-sidebar">
             <div class="dash-logo"><img src="assets/img/tere-studio-logo.png" alt="" /><span>Terê<br>Studio</span></div>
-            <a class="active">Visão geral</a>
-            <a>Agenda</a>
-            <a>Clientes</a>
-            <a>Serviços</a>
-            <a>Financeiro</a>
+            <a class="active">Painel</a>
+            <a>Atendimento</a>
+            <a>Pedidos</a>
+            <a>Mockups</a>
+            <a>Produção</a>
+            <a>Caixa</a>
             <a>Estoque</a>
-            <a>Marketing</a>
-            <a>Relatórios</a>
-            <a>Projetos</a>
+            <a>Totem</a>
             <a>Licenças</a>
           </aside>
           <div class="dash-main">
             <div class="dash-top">
-              <strong>Visão geral</strong>
-              <div><span>01/05/2026 - 31/05/2026</span><button>Mês atual</button></div>
+              <strong>Visão da loja</strong>
+              <div><span>Operação de hoje</span><button>Ao vivo</button></div>
             </div>
             <div class="kpi-grid">
-              <article><small>Faturamento</small><b>R$ 24.580,00</b><span>+18% vs. mês anterior</span><svg viewBox="0 0 120 32"><polyline points="0,24 18,19 35,22 52,13 70,18 88,9 108,15 120,5"/></svg></article>
-              <article><small>Novos clientes</small><b>168</b><span>+21% vs. mês anterior</span><svg viewBox="0 0 120 32"><polyline points="0,25 20,24 36,19 54,21 70,14 90,16 108,12 120,7"/></svg></article>
-              <article><small>Agendamentos</small><b>186</b><span>+16% vs. mês anterior</span><svg viewBox="0 0 120 32"><polyline points="0,21 18,18 34,20 54,16 73,22 92,10 110,13 120,6"/></svg></article>
+              <article><small>Pedidos hoje</small><b>18</b><span>7 em produção</span><svg viewBox="0 0 120 32"><polyline points="0,24 18,19 35,22 52,13 70,18 88,9 108,15 120,5"/></svg></article>
+              <article><small>Caixa do dia</small><b>R$ 1.840,00</b><span>+12% vs. ontem</span><svg viewBox="0 0 120 32"><polyline points="0,25 20,24 36,19 54,21 70,14 90,16 108,12 120,7"/></svg></article>
+              <article><small>Mockups prontos</small><b>12</b><span>4 aguardando aprovação</span><svg viewBox="0 0 120 32"><polyline points="0,21 18,18 34,20 54,16 73,22 92,10 110,13 120,6"/></svg></article>
             </div>
             <div class="dash-bottom">
               <article class="agenda-card">
-                <h3>Agenda de hoje</h3>
-                <p><strong>09:00</strong><span>Camila Alves<br><small>Coloração</small></span><em>Confirmado</em></p>
-                <p><strong>10:30</strong><span>Juliana Costa<br><small>Escova</small></span><em>Confirmado</em></p>
-                <p><strong>14:00</strong><span>Mariana Lima<br><small>Manicure</small></span><em>Confirmado</em></p>
-                <a>Ver agenda completa</a>
+                <h3>Produção em andamento</h3>
+                <p><strong>#284</strong><span>Pingente redondo<br><small>Foto frente + texto verso</small></span><em>Gravar</em></p>
+                <p><strong>#285</strong><span>Chaveiro retangular<br><small>Mockup aprovado</small></span><em>Separar</em></p>
+                <p><strong>#286</strong><span>Colar personalizado<br><small>Cliente enviou foto no Totem</small></span><em>Editar</em></p>
+                <a>Ver fila de produção</a>
               </article>
               <article class="finance-card">
-                <h3>Resumo financeiro</h3>
+                <h3>Operação organizada</h3>
                 <div class="donut-wrap">
                   <div class="donut"></div>
                   <ul>
-                    <li><i></i>Serviços <b>62%</b></li>
-                    <li><i></i>Produtos <b>20%</b></li>
-                    <li><i></i>Pacotes <b>12%</b></li>
-                    <li><i></i>Outros <b>6%</b></li>
+                    <li><i></i>Pedidos <b>46%</b></li>
+                    <li><i></i>Produção <b>28%</b></li>
+                    <li><i></i>Mockups <b>18%</b></li>
+                    <li><i></i>Caixa <b>8%</b></li>
                   </ul>
                 </div>
-                <a>Ver relatório completo</a>
+                <a>Ver resumo completo</a>
               </article>
             </div>
           </div>
@@ -99,13 +103,60 @@
 
     <section id="beneficios" class="trust-strip">
       <div class="section-shell">
-        <p>Confiado por profissionais que fazem a diferença</p>
+        <p>Para lojas que atendem pelo WhatsApp, criam mockups e produzem peças personalizadas sob encomenda.</p>
         <div class="trust-icons">
-          <span>▣ <strong>Mais organização<br>e produtividade</strong></span>
-          <span>☆ <strong>Clientes mais<br>satisfeitos e fiéis</strong></span>
-          <span>⚙ <strong>Controle financeiro<br>em tempo real</strong></span>
-          <span>◌ <strong>Relatórios que<br>geram resultados</strong></span>
-          <span>☞ <strong>Cresça com<br>mais segurança</strong></span>
+          <span>▣ <strong>Pedidos sem<br>bagunça</strong></span>
+          <span>☆ <strong>Mockups com<br>padrão</strong></span>
+          <span>⚙ <strong>Produção mais<br>clara</strong></span>
+          <span>◌ <strong>Caixa e estoque<br>no controle</strong></span>
+          <span>☞ <strong>Rotina pronta<br>para funcionar</strong></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-shell who-section">
+      <div class="section-title center">
+        <span class="eyebrow">Feito para personalizados</span>
+        <h2>Se sua loja trabalha com foto, arte, gravação ou produção manual, o Terê Studio entra para facilitar o dia a dia.</h2>
+      </div>
+      <div class="who-grid">
+        <article>Pingentes personalizados</article>
+        <article>Chaveiros e colares</article>
+        <article>Gravação a laser</article>
+        <article>Canecas e brindes</article>
+        <article>Produtos com foto</article>
+        <article>Mockups sob encomenda</article>
+      </div>
+    </section>
+
+    <section class="before-after">
+      <div class="section-shell before-after-grid">
+        <div class="section-title">
+          <span class="eyebrow">Antes e depois</span>
+          <h2>Menos improviso no dia a dia. Mais clareza para tocar a loja.</h2>
+          <p>O Terê Studio foi pensado para deixar atendimento, criação, produção e controle da loja mais fáceis de acompanhar.</p>
+        </div>
+        <div class="compare-cards">
+          <article>
+            <span>Antes</span>
+            <h3>Informação espalhada e produção confusa</h3>
+            <ul>
+              <li>WhatsApp cheio de informações perdidas</li>
+              <li>Foto, texto e mockup separados</li>
+              <li>Fila de produção sem padrão</li>
+              <li>Caixa e estoque conferidos por fora</li>
+            </ul>
+          </article>
+          <article class="after-card">
+            <span>Depois</span>
+            <h3>Tudo mais claro dentro da loja</h3>
+            <ul>
+              <li>Cliente, pedido e produto no mesmo lugar</li>
+              <li>Mockup salvo e pronto para aprovação</li>
+              <li>Produção encaminhada com mais clareza</li>
+              <li>Caixa, estoque e licenças sob controle</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
@@ -113,18 +164,56 @@
     <section id="modulos" class="section-shell modules-section">
       <div class="section-title center">
         <span class="eyebrow">Módulos</span>
-        <h2>Tudo que você precisa, em um só lugar</h2>
+        <h2>Um sistema para usar no caminho inteiro: do atendimento à entrega.</h2>
       </div>
       <div class="module-grid premium-grid">
-        <article><b>□</b><h3>Agenda inteligente</h3><p>Visualize sua semana, evite conflitos e lembretes automáticos para clientes.</p></article>
-        <article><b>♧</b><h3>Gestão de clientes</h3><p>Histórico completo, preferências, tratamentos e comunicação personalizada.</p></article>
-        <article><b>$</b><h3>Financeiro</h3><p>Fluxo de caixa, contas a pagar e receber, com relatórios claros e completos.</p></article>
-        <article><b>▱</b><h3>Estoque</h3><p>Controle de produtos, kits e fornecedores com alerta de reposição.</p></article>
-        <article><b>◁</b><h3>Marketing</h3><p>Campanhas, promoções, programas de fidelidade e automações.</p></article>
-        <article><b>▥</b><h3>Relatórios</h3><p>Indicadores estratégicos para decisões que impulsionam resultados.</p></article>
-        <article><b>✦</b><h3>Projetos gráficos</h3><p>Crie, edite e organize materiais visuais para campanhas e produção.</p></article>
-        <article><b>▤</b><h3>Totem de autoatendimento</h3><p>Escolha de produto, confirmação e experiência guiada para o cliente.</p></article>
-        <article><b>◇</b><h3>Licenças</h3><p>Gerencie ativações, planos, status, validade e renovações online.</p></article>
+        <article><b>☏</b><h3>Atendimento e pedidos</h3><p>Cadastre o cliente, monte o pedido e acompanhe cada item personalizado.</p></article>
+        <article><b>♧</b><h3>Clientes automáticos</h3><p>Busque por nome, WhatsApp ou CPF e mantenha histórico da loja.</p></article>
+        <article><b>▱</b><h3>Produtos e estoque</h3><p>Acompanhe produtos, cores, modelos, correntes, quantidades e reposição.</p></article>
+        <article><b>$</b><h3>Caixa da loja</h3><p>Veja entradas, saídas e movimentação diária com mais segurança.</p></article>
+        <article><b>✦</b><h3>Mockups por produto</h3><p>Organize frente, verso, cor e área útil respeitando o produto real.</p></article>
+        <article><b>▤</b><h3>Projetos gráficos</h3><p>Monte artes, ajuste fotos, textos e elementos com visual de editor moderno.</p></article>
+        <article><b>◌</b><h3>IA Local e Remove.bg</h3><p>Remova fundos com opção online ou processamento local, de forma clara para quem usa.</p></article>
+        <article><b>▥</b><h3>Produção</h3><p>Envie o item aprovado para a fila e reduza retrabalho no processo.</p></article>
+        <article><b>☞</b><h3>Totem de autoatendimento</h3><p>Seu cliente escolhe produto, envia foto e monta a personalização no tablet.</p></article>
+        <article><b>◇</b><h3>Licenças online</h3><p>Ativação por máquina, com PC principal, PC cliente e controle pelo servidor.</p></article>
+        <article><b>↗</b><h3>Melhor Envio</h3><p>Fluxo preparado para calcular e organizar envios quando sua loja precisar.</p></article>
+        <article><b>☑</b><h3>Backup e suporte</h3><p>Mais tranquilidade para operar, recuperar licença e receber orientação.</p></article>
+      </div>
+    </section>
+
+    <section id="por-dentro" class="inside-section">
+      <div class="section-shell">
+        <div class="inside-head">
+          <div class="section-title">
+            <span class="eyebrow">Por dentro do Terê Studio</span>
+            <h2>Aqui entram as telas reais do sistema em uso.</h2>
+            <p>Por enquanto estes espaços estão preparados. Depois entram prints reais do Terê Studio funcionando na loja.</p>
+          </div>
+          <a class="btn btn-outline dark" href="#lista-prints">Ver telas necessárias</a>
+        </div>
+        <div class="screen-grid">
+          <article class="screen-card" data-screen-slot="painel">
+            <div class="screen-placeholder"><span>Print 01</span><strong>Painel inicial</strong><small>Visão geral da loja</small></div>
+            <h3>Painel que mostra a operação</h3>
+            <p>Ideal para mostrar pedidos, produção, caixa e atalhos principais.</p>
+          </article>
+          <article class="screen-card" data-screen-slot="pedidos">
+            <div class="screen-placeholder"><span>Print 02</span><strong>Atendimento e pedidos</strong><small>Pedido na prática</small></div>
+            <h3>Pedido organizado desde o começo</h3>
+            <p>Cliente, produtos, personalização e resumo do pedido no mesmo fluxo.</p>
+          </article>
+          <article class="screen-card" data-screen-slot="projetos">
+            <div class="screen-placeholder"><span>Print 03</span><strong>Projetos gráficos</strong><small>Mockup e personalização</small></div>
+            <h3>Mockups e editor visual</h3>
+            <p>O ponto que mais diferencia o Terê Studio de sistemas genéricos.</p>
+          </article>
+          <article class="screen-card" data-screen-slot="totem">
+            <div class="screen-placeholder"><span>Print 04</span><strong>Totem</strong><small>Cliente no tablet</small></div>
+            <h3>Autoatendimento para encantar</h3>
+            <p>Ajuda o cliente a montar a personalização com menos explicação manual.</p>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -133,19 +222,26 @@
         <div class="plans-head">
           <div>
             <span class="eyebrow">Planos</span>
-            <h2>Escolha o plano ideal para o seu momento</h2>
+            <h2>Escolha o plano que combina com a rotina da sua loja.</h2>
           </div>
-          <div class="cycle-preview" aria-label="Ciclos disponíveis"><span>1 mês</span><span>6 meses</span><span>1 ano</span></div>
+          <div class="billing-toggle-wrap">
+            <div class="billing-toggle" role="tablist" aria-label="Escolha o período do plano">
+              <button class="is-active" type="button" data-cycle-toggle="mensal" aria-selected="true">Mensal</button>
+              <button type="button" data-cycle-toggle="semestral" aria-selected="false">Semestral</button>
+              <button type="button" data-cycle-toggle="anual" aria-selected="false">Anual</button>
+            </div>
+            <small>Semestral e anual podem aparecer parcelados sem juros no cartão.</small>
+          </div>
         </div>
         <div class="plans-layout">
           <div id="plansGrid" class="plans-grid" aria-live="polite"></div>
           <aside class="plan-assurance">
             <div class="crown">♛</div>
             <ul>
-              <li>Compra segura</li>
-              <li>Ativação imediata</li>
-              <li>Ambiente 100% seguro</li>
-              <li>Suporte humano que realmente ajuda</li>
+              <li>Pagamento seguro</li>
+              <li>Ativação da licença pelo servidor</li>
+              <li>Planos editáveis fora do instalador</li>
+              <li>Suporte humano para começar a usar do jeito certo</li>
             </ul>
             <a class="assurance-link" href="recuperar-licenca.html">Recuperar licença</a>
           </aside>
@@ -156,11 +252,11 @@
     <section id="checkout" class="section-shell checkout-section" hidden>
       <div class="checkout-premium">
         <aside class="checkout-summary-card">
-          <span class="eyebrow">Resumo da contratação</span>
+          <span class="eyebrow">Resumo do plano</span>
           <h2 id="checkoutSummaryTitle">Plano selecionado</h2>
-          <p id="checkoutSummaryText">Revise o plano antes de seguir para o pagamento seguro.</p>
+          <p id="checkoutSummaryText">Confira o plano antes de seguir para a ativação.</p>
           <div class="checkout-total-box">
-            <small>Total selecionado</small>
+            <small>Plano selecionado</small>
             <strong id="checkoutSummaryPrice">—</strong>
             <span id="checkoutSummaryCycle">—</span>
           </div>
@@ -169,7 +265,7 @@
             <span>Pagamento seguro</span>
             <strong>Mercado Pago</strong>
           </div>
-          <p class="checkout-note">Depois do pagamento aprovado, você volta para a página de sucesso e a licença aparece somente uma vez.</p>
+          <p class="checkout-note">Depois da confirmação, você volta para a página de ativação e a licença aparece somente uma vez.</p>
         </aside>
 
         <form id="checkoutForm" class="checkout-form checkout-inline-form">
@@ -177,8 +273,8 @@
           <input type="hidden" name="cycleId" />
           <div class="checkout-form-head">
             <span class="eyebrow">Dados para ativação</span>
-            <h2>Finalizar contratação</h2>
-            <p id="checkoutPlanInfo">Preencha os dados para gerar seu pedido com segurança.</p>
+            <h2>Ativar plano</h2>
+            <p id="checkoutPlanInfo">Preencha os dados para preparar a ativação com segurança.</p>
           </div>
           <div class="form-grid two">
             <label>Nome do responsável<input name="nome" required minlength="3" autocomplete="name" placeholder="Ex.: Denis Araújo" /></label>
@@ -189,76 +285,106 @@
             <label>E-mail<input name="email" required type="email" autocomplete="email" placeholder="Ex.: contato@sualoja.com" /></label>
           </div>
           <label>CPF opcional<input name="cpf" inputmode="numeric" autocomplete="off" placeholder="Opcional" /></label>
-          <button class="btn btn-gold full" type="submit">Ir para pagamento seguro</button>
+          <button class="btn btn-gold full" type="submit">Continuar com segurança</button>
           <p class="form-message" id="checkoutMessage"></p>
         </form>
       </div>
     </section>
 
-    <section id="depoimentos" class="section-shell testimonial-band">
+    <section id="suporte" class="section-shell testimonial-band">
       <div class="testimonial-copy">
-        <span class="eyebrow">Suporte que acolhe</span>
-        <h2>Você nunca estará sozinha</h2>
-        <p>Nosso time está sempre por perto para ajudar você a tirar o máximo do Terê Studio.</p>
+        <span class="eyebrow">Suporte e implantação</span>
+        <h2>Não é só uma tela bonita. É um fluxo para usar na rotina da loja.</h2>
+        <p>O suporte ajuda na ativação, primeiros passos, recuperação de licença e dúvidas importantes da rotina.</p>
         <a class="btn btn-navy" data-support-link href="#">Fale com o suporte</a>
       </div>
       <div class="support-cards">
-        <article><b>☏</b><h3>Atendimento humano e próximo</h3><p>Fale com pessoas que entendem o seu negócio.</p></article>
-        <article><b>▤</b><h3>Treinamentos e materiais</h3><p>Vídeos, tutoriais e conteúdos para sua equipe evoluir.</p></article>
-        <article><b>◇</b><h3>Implantação assistida</h3><p>Acompanhamento para começar do jeito certo.</p></article>
-        <article><b>♧</b><h3>Comunidade Terê Studio</h3><p>Troque experiências e cresça junto com outros profissionais.</p></article>
+        <article><b>☏</b><h3>Atendimento humano</h3><p>Para tirar dúvidas sem linguagem técnica desnecessária.</p></article>
+        <article><b>▤</b><h3>Tutoriais e ajuda</h3><p>Materiais simples para treinar a equipe da loja.</p></article>
+        <article><b>◇</b><h3>Ativação segura</h3><p>Licença por máquina com PC principal e PC cliente.</p></article>
+        <article><b>♧</b><h3>Recuperação de licença</h3><p>Fluxo via suporte para proteger o acesso do cliente.</p></article>
       </div>
     </section>
 
-    <section id="suporte" class="license-recovery">
+    <section id="faq" class="faq-section">
+      <div class="section-shell faq-grid">
+        <div class="section-title">
+          <span class="eyebrow">Dúvidas rápidas</span>
+          <h2>Respostas diretas antes de começar.</h2>
+          <p>Tudo claro sobre o que o Terê Studio faz — e também sobre o que ele não faz.</p>
+        </div>
+        <div class="faq-list">
+          <details open><summary>O Terê Studio emite NF-e ou NFC-e?</summary><p>Não. O Terê Studio não é um ERP fiscal. Ele organiza atendimento, pedidos, clientes, mockups, produção, estoque, caixa e operação da loja.</p></details>
+          <details><summary>Funciona sem internet?</summary><p>O sistema instalado foi pensado para continuar operando localmente quando possível. A internet é importante para ativação, validação de licença, pagamento e serviços online.</p></details>
+          <details><summary>Posso usar em mais de um computador?</summary><p>Sim, conforme o plano escolhido. O primeiro computador ativado vira o PC principal. PCs clientes precisam respeitar o limite do plano e o vínculo com o PC principal.</p></details>
+          <details><summary>Onde ficam os dados da loja?</summary><p>O app instalado não depende da landing page. A operação da loja fica no ambiente do sistema instalado, e a landing serve para apresentar planos, suporte, pagamento e ativação.</p></details>
+          <details><summary>Como recebo minha licença?</summary><p>Depois da confirmação, a página de ativação exibe a licença uma única vez por segurança. Guarde o código em local seguro.</p></details>
+          <details><summary>Se eu perder a licença, consigo recuperar?</summary><p>Sim. A recuperação é feita pelo suporte oficial, conferindo dados da ativação para proteger o acesso.</p></details>
+          <details><summary>O teste grátis precisa de cartão?</summary><p>Essa regra pode ser ajustada conforme a estratégia do Terê Studio. A página já deixa o fluxo preparado para teste grátis, plano ativo e suporte.</p></details>
+          <details><summary>O Totem está incluso?</summary><p>O Totem entra conforme o plano e a versão liberada. Ele foi pensado para atendimento em tablet, com fluxo simples para o cliente final.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="license-recovery">
       <div class="section-shell recovery-grid">
         <div>
           <span class="eyebrow">Recuperação de licença</span>
-          <h2>Perdeu sua licença? Recuperamos para você.</h2>
-          <p>A recuperação acontece pelo suporte oficial, com segurança, sem expor sua licença dentro do aplicativo.</p>
+          <h2>Perdeu sua licença? O suporte localiza com segurança.</h2>
+          <p>Informe nome, loja, WhatsApp usado na ativação e e-mail. A licença não deve ser exposta publicamente.</p>
         </div>
         <a class="btn btn-gold" href="recuperar-licenca.html">Recuperar licença <span>→</span></a>
       </div>
     </section>
+
+    <section id="lista-prints" class="print-list-section">
+      <div class="section-shell print-list-card">
+        <span class="eyebrow">Para a próxima etapa</span>
+        <h2>Lista de telas que vamos encaixar depois</h2>
+        <p>Quando você estiver com o sistema aberto, tire os prints em tela cheia com a rotina funcionando. Eu vou encaixar nos cartões certos da seção “Por dentro do Terê Studio”.</p>
+        <ol>
+          <li>Painel inicial do Terê Studio com menu lateral e indicadores.</li>
+          <li>Tela de atendimento/pedido com dados preenchidos e resumo visível.</li>
+          <li>Tela de projetos gráficos ou personalização com mockup aberto.</li>
+          <li>Tela do Totem em modo retrato, bonita e limpa.</li>
+          <li>Tela de produção ou pedidos em produção.</li>
+          <li>Tela de ativação/licença ou configurações de PC principal/cliente, se estiver visualmente apresentável.</li>
+        </ol>
+      </div>
+    </section>
   </main>
 
-  <footer id="novidades" class="site-footer">
-    <div class="section-shell footer-grid">
+  <footer class="site-footer">
+    <div class="section-shell footer-grid clean-footer">
       <div class="footer-brand">
         <img src="assets/img/tere-studio-logo.png" alt="Terê Studio" />
-        <p>Software completo para gestão de negócios de beleza e bem-estar.</p>
+        <p>Sistema operacional para lojas de personalizados organizarem atendimento, pedidos, mockups, produção e controle da loja.</p>
         <div class="social-row"><span>◎</span><span>f</span><span>▶</span></div>
       </div>
       <nav>
         <strong>Produto</strong>
-        <a href="#beneficios">Recursos</a>
+        <a href="#beneficios">Rotina</a>
         <a href="#modulos">Módulos</a>
+        <a href="#por-dentro">Telas</a>
         <a href="#planos">Planos</a>
-        <a href="#topo">Atualizações</a>
-      </nav>
-      <nav>
-        <strong>Institucional</strong>
-        <a href="#topo">Sobre nós</a>
-        <a href="#novidades">Blog</a>
-        <a href="#depoimentos">Depoimentos</a>
-        <a href="#suporte">Seja parceiro</a>
       </nav>
       <nav>
         <strong>Suporte</strong>
-        <a href="recuperar-licenca.html">Central de ajuda</a>
+        <a href="ajuda.html">Central de ajuda</a>
         <a data-support-link href="#">Fale conosco</a>
-        <a href="#depoimentos">Treinamentos</a>
         <a href="recuperar-licenca.html">Recuperar licença</a>
+        <a href="#faq">Dúvidas frequentes</a>
       </nav>
-      <div class="newsletter">
-        <strong>Receba novidades</strong>
-        <p>Dicas, novidades e conteúdos exclusivos para o seu negócio.</p>
-        <label><input type="email" placeholder="Seu melhor e-mail"><button type="button">→</button></label>
-      </div>
+      <nav>
+        <strong>Legal</strong>
+        <a href="termos.html">Termos de uso</a>
+        <a href="privacidade.html">Política de privacidade</a>
+        <a href="privacidade.html#lgpd">LGPD</a>
+      </nav>
     </div>
     <div class="footer-bottom section-shell">
       <span>© 2026 Terê Studio. Todos os direitos reservados.</span>
-      <div><a href="#">Termos de uso</a><a href="#">Política de privacidade</a><a href="#">LGPD</a></div>
+      <span>Landing page separada do aplicativo instalado.</span>
     </div>
   </footer>
 

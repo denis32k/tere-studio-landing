@@ -3,53 +3,137 @@
     "id": "inicial",
     "nome": "Inicial",
     "preco": "Sob consulta",
-    "descricao": "Para começar a organizar pedidos, clientes, produtos, estoque e caixa.",
-    "destaque": "1 computador e operação essencial.",
-    "features": ["Atendimento e pedidos", "Clientes e produtos", "Estoque e caixa", "Projetos e mockups essenciais"],
-    "billingCycles": [
-      { "id": "mensal", "label": "1 mês", "months": 1, "preco": "Sob consulta" },
-      { "id": "semestral", "label": "6 meses", "months": 6, "preco": "Sob consulta" },
-      { "id": "anual", "label": "1 ano", "months": 12, "preco": "Sob consulta" }
+    "descricao": "Para começar a usar no atendimento, pedidos, clientes, produtos, estoque e caixa.",
+    "destaque": "1 computador para a rotina essencial da loja.",
+    "features": [
+      "Atendimento e pedidos",
+      "Clientes e produtos",
+      "Estoque e caixa",
+      "Projetos e mockups essenciais",
+      "Ativação no PC principal"
     ],
-    "buttonLabel": "Comprar Inicial"
+    "billingCycles": [
+      {
+        "id": "mensal",
+        "label": "Mensal",
+        "months": 1,
+        "preco": "Sob consulta",
+        "installments": 1
+      },
+      {
+        "id": "semestral",
+        "label": "Semestral",
+        "months": 6,
+        "preco": "Sob consulta",
+        "installments": 6,
+        "installmentsLabel": "6x sem juros"
+      },
+      {
+        "id": "anual",
+        "label": "Anual",
+        "months": 12,
+        "preco": "Sob consulta",
+        "installments": 12,
+        "installmentsLabel": "12x sem juros"
+      }
+    ],
+    "buttonLabel": "Começar com Inicial"
   },
   {
     "id": "profissional",
     "nome": "Profissional",
     "preco": "Sob consulta",
-    "descricao": "Para loja que quer ganhar velocidade com IA Local, mockups e autoatendimento.",
-    "destaque": "Plano recomendado para loja em operação.",
+    "descricao": "Para loja que já usa mockups, produção e atendimento com mais movimento no dia a dia.",
+    "destaque": "Plano recomendado para a rotina completa da loja.",
     "featured": true,
-    "features": ["Até 2 computadores", "IA Local para fotos", "Totem de autoatendimento", "Remove.bg e produção mais rápida"],
-    "billingCycles": [
-      { "id": "mensal", "label": "1 mês", "months": 1, "preco": "Sob consulta" },
-      { "id": "semestral", "label": "6 meses", "months": 6, "preco": "Sob consulta" },
-      { "id": "anual", "label": "1 ano", "months": 12, "preco": "Sob consulta", "featured": true }
+    "features": [
+      "Até 2 computadores",
+      "PC principal + PC cliente",
+      "IA Local e Remove.bg",
+      "Totem de autoatendimento",
+      "Mockups e produção mais rápida"
     ],
-    "buttonLabel": "Comprar Profissional"
+    "billingCycles": [
+      {
+        "id": "mensal",
+        "label": "Mensal",
+        "months": 1,
+        "preco": "Sob consulta",
+        "installments": 1
+      },
+      {
+        "id": "semestral",
+        "label": "Semestral",
+        "months": 6,
+        "preco": "Sob consulta",
+        "installments": 6,
+        "installmentsLabel": "6x sem juros"
+      },
+      {
+        "id": "anual",
+        "label": "Anual",
+        "months": 12,
+        "preco": "Sob consulta",
+        "featured": true,
+        "installments": 12,
+        "installmentsLabel": "12x sem juros"
+      }
+    ],
+    "buttonLabel": "Começar com Profissional"
   },
   {
     "id": "avancado",
     "nome": "Avançado",
     "preco": "Sob consulta",
-    "descricao": "Para operação maior, com mais dispositivos, relatórios e recursos avançados.",
-    "destaque": "Mais PCs, mais totens e visão gerencial.",
-    "features": ["Até 5 computadores", "Até 3 totens", "Pedido online", "Relatórios avançados"],
-    "billingCycles": [
-      { "id": "mensal", "label": "1 mês", "months": 1, "preco": "Sob consulta" },
-      { "id": "semestral", "label": "6 meses", "months": 6, "preco": "Sob consulta" },
-      { "id": "anual", "label": "1 ano", "months": 12, "preco": "Sob consulta" }
+    "descricao": "Para operação maior, com mais máquinas, produção mais intensa e visão gerencial.",
+    "destaque": "Mais PCs, mais totens e mais controle na rotina.",
+    "features": [
+      "Até 5 computadores",
+      "PC principal + clientes",
+      "Até 3 totens",
+      "Pedido online",
+      "Relatórios avançados"
     ],
-    "buttonLabel": "Comprar Avançado"
+    "billingCycles": [
+      {
+        "id": "mensal",
+        "label": "Mensal",
+        "months": 1,
+        "preco": "Sob consulta",
+        "installments": 1
+      },
+      {
+        "id": "semestral",
+        "label": "Semestral",
+        "months": 6,
+        "preco": "Sob consulta",
+        "installments": 6,
+        "installmentsLabel": "6x sem juros"
+      },
+      {
+        "id": "anual",
+        "label": "Anual",
+        "months": 12,
+        "preco": "Sob consulta",
+        "installments": 12,
+        "installmentsLabel": "12x sem juros"
+      }
+    ],
+    "buttonLabel": "Começar com Avançado"
   },
   {
     "id": "personalizado",
     "nome": "Personalizado",
     "preco": "Sob consulta",
     "descricao": "Para redes, white label, implantação guiada ou necessidades especiais.",
-    "destaque": "Projeto sob medida.",
-    "features": ["Condições personalizadas", "Ajustes por operação", "Suporte de implantação", "Escala para mais unidades"],
-    "buttonLabel": "Falar sobre Personalizado",
+    "destaque": "Configuração sob medida para sua operação.",
+    "features": [
+      "Condições personalizadas",
+      "Ajustes por operação",
+      "Suporte de implantação",
+      "Escala para mais unidades"
+    ],
+    "buttonLabel": "Falar com suporte",
     "supportOnly": true
   }
 ]
