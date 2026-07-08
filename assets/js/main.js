@@ -360,3 +360,33 @@ form?.addEventListener('submit', async ev => {
     submit.disabled = false;
   }
 });
+
+// RC61.7 — entrada suave das seções e cards
+const revealTargets = [
+  '.trust-strip .section-shell',
+  '.who-section .section-title', '.who-grid article',
+  '.before-after .section-title', '.compare-cards article',
+  '.emotion-strip .section-shell',
+  '.modules-section .section-title', '.module-grid article',
+  '.inside-head', '.screen-card',
+  '.pricing-hero', '.billing-panel', '.pricing-card', '.comparison-card', '.plan-faq-grid article',
+  '.testimonial-band .testimonial-copy', '.support-cards article',
+  '.faq-grid .section-title', '.faq-list details', '.license-recovery .recovery-grid'
+];
+const revealEls = revealTargets.flatMap(selector => Array.from(document.querySelectorAll(selector)));
+revealEls.forEach((el, index) => {
+  el.classList.add('reveal', `reveal-delay-${(index % 4) + 1}`);
+});
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.13, rootMargin: '0px 0px -8% 0px' });
+  revealEls.forEach(el => observer.observe(el));
+} else {
+  revealEls.forEach(el => el.classList.add('is-visible'));
+}

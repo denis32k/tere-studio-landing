@@ -73,3 +73,8 @@ A landing continua buscando planos no servidor de licenças antes de usar `conte
 ## RC61.6 — Refino visual premium
 
 Refino visual aplicado em cima da RC61.5 para deixar a landing com aparência mais profissional, limpa e SaaS real, principalmente nos planos.
+
+
+## RC61.7 — Toque humano e efeitos premium
+
+Adiciona movimento suave, brilho no topo, microinterações, entrada de seções ao rolar e uma linha visual de rotina Atendimento → Pedido → Prévia → Produção. Não altera checkout, planos dinâmicos nem integração com servidor.
