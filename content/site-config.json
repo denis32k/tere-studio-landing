@@ -1,13 +1,13 @@
 {
   "brandName": "Terê Studio",
-  "headline": "O Terê Studio para usar na rotina da sua loja",
-  "subheadline": "Use o Terê Studio para cuidar do atendimento, pedidos, mockups, produção, estoque, caixa, totem e licenças em um só lugar.",
+  "headline": "Gestão para joias e semijoias personalizadas, do pedido à produção.",
+  "subheadline": "O Terê Studio organiza atendimento, pedidos, clientes, personalizações, produção e controle da loja em uma rotina simples de acompanhar.",
   "licenseServerUrl": "https://li.terepersonalizados.com.br/api",
   "downloadUrl": "https://terestudio.terepersonalizados.com.br/download/tere-studio-installer.exe",
   "supportWhatsappUrl": "https://wa.me/5535999999999",
   "supportWhatsappText": "Olá! Preciso de suporte com minha licença do Terê Studio.",
   "purchaseWhatsappText": "Olá! Quero começar a usar o Terê Studio na minha loja.",
   "primaryCta": "Começar teste grátis",
-  "secondaryCta": "Ver as telas do sistema",
+  "secondaryCta": "Conhecer o sistema",
   "securityNotice": "Por segurança, sua licença será exibida somente aqui esta única vez. Guarde em local seguro."
 }

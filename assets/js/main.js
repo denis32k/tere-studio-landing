@@ -31,6 +31,11 @@ const BILLING_DEFAULTS = {
   semestral: { id: 'semestral', label: 'Semestral', months: 6, sort: 2, installments: 6 },
   anual: { id: 'anual', label: 'Anual', months: 12, sort: 3, installments: 12 }
 };
+const BILLING_HELP = {
+  mensal: 'Mensal para começar agora, com baixo investimento inicial.',
+  semestral: 'Semestral para manter a loja organizada por 6 meses, com opção de parcelamento sem juros no cartão.',
+  anual: 'Anual para usar por 12 meses, com melhor planejamento e opção de parcelamento sem juros no cartão.'
+};
 let selectedBillingCycleId = 'mensal';
 let plans = [];
 
@@ -135,35 +140,83 @@ function cycleSubtitleFor(cycle) {
 function totalTextFor(cycle) {
   if (!cycle || cycle.id === 'mensal') return '';
   const amount = Number(cycle.priceAmount || 0);
-  if (!Number.isFinite(amount) || amount <= 0) return 'Valor total definido pelo servidor de licenças.';
+  if (!Number.isFinite(amount) || amount <= 0) return 'Valor total conforme o plano selecionado.';
   return `Total: ${formatMoneyBR(amount)}`;
+}
+
+function planLabelFor(plan) {
+  if (plan.label || plan.tagline) return plan.label || plan.tagline;
+  const id = String(plan.id || '').toLowerCase();
+  if (id === 'inicial') return 'Para começar';
+  if (id === 'profissional') return 'Mais escolhido';
+  if (id === 'avancado' || id === 'avançado') return 'Para crescer';
+  if (id === 'personalizado') return 'Sob medida';
+  return 'Plano Terê Studio';
+}
+
+function planAudienceFor(plan) {
+  if (plan.audience || plan.publico) return plan.audience || plan.publico;
+  const id = String(plan.id || '').toLowerCase();
+  if (id === 'inicial') return 'Para lojas que querem organizar a rotina principal em um computador.';
+  if (id === 'profissional') return 'Para lojas com mais movimento, produção diária e atendimento mais completo.';
+  if (id === 'avancado' || id === 'avançado') return 'Para operações com mais computadores, equipe e necessidade de mais controle.';
+  if (id === 'personalizado') return 'Para redes, implantação guiada ou necessidades especiais.';
+  return plan.descricao || 'Para organizar a rotina da loja com mais clareza.';
+}
+
+function priceMarkupFor(plan, cycle, supportOnly) {
+  if (supportOnly) {
+    return `<div class="plan-price premium-price"><small>plano sob medida</small><span class="price-main">${escapeHtml(plan.preco || 'Sob consulta')}</span><span class="price-subtitle">Condições alinhadas pelo suporte.</span></div>`;
+  }
+  const priceText = priceTextFor(plan, cycle);
+  const installmentText = installmentTextFor(cycle);
+  const totalText = totalTextFor(cycle);
+  if (cycle?.id !== 'mensal' && Number(cycle?.priceAmount || 0) > 0 && installmentText) {
+    return `<div class="plan-price premium-price installment-price"><small>${escapeHtml(cycle.label || 'Plano')}</small><span class="price-main">${escapeHtml(installmentText)}</span><span class="price-subtitle">${escapeHtml(totalText || priceText)}</span></div>`;
+  }
+  return `<div class="plan-price premium-price"><small>${cycle?.id === 'mensal' ? 'mensalidade' : 'valor do período'}</small><span class="price-main">${escapeHtml(priceText)}${cycle?.id === 'mensal' && priceText !== 'Sob consulta' ? '<em>/mês</em>' : ''}</span>${installmentText ? `<span class="price-subtitle">${escapeHtml(installmentText)}</span>` : `<span class="price-subtitle">${escapeHtml(cycleSubtitleFor(cycle))}</span>`}</div>`;
 }
 
 function renderPlan(plan) {
   const features = Array.isArray(plan.features) ? plan.features : [];
   const supportOnly = plan.supportOnly || plan.id === 'personalizado';
-  const cycles = planCycles(plan);
   const cycle = supportOnly ? null : selectedCycleFor(plan);
-  const priceText = supportOnly ? (plan.preco || 'Sob consulta') : priceTextFor(plan, cycle);
-  const installmentText = supportOnly ? '' : installmentTextFor(cycle);
-  const totalText = supportOnly ? '' : totalTextFor(cycle);
   const buttonLabel = plan.buttonLabel || (supportOnly ? 'Falar com suporte' : 'Começar agora');
+  const featured = Boolean(plan.featured) && !supportOnly;
+  const planClass = ['plan-card', 'pricing-card'];
+  if (featured) planClass.push('featured');
+  if (supportOnly) planClass.push('support-only');
+
+  if (supportOnly) {
+    return `
+      <article class="${planClass.join(' ')}">
+        <div class="support-plan-copy">
+          <span class="plan-kicker">${escapeHtml(planLabelFor(plan))}</span>
+          <h3>${escapeHtml(plan.nome || 'Personalizado')}</h3>
+          <p class="plan-audience">${escapeHtml(planAudienceFor(plan))}</p>
+        </div>
+        ${priceMarkupFor(plan, null, true)}
+        <ul class="plan-feature-list compact">${features.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
+        <button class="btn btn-primary" type="button" data-buy-plan="${escapeAttr(plan.id)}" data-cycle-id="mensal" data-support-only="1">${escapeHtml(buttonLabel)}</button>
+      </article>`;
+  }
+
   return `
-    <article class="plan-card ${plan.featured ? 'featured' : ''}">
-      ${plan.featured ? '<span class="plan-badge">Mais escolhido</span>' : ''}
-      <h3>${escapeHtml(plan.nome || '')}</h3>
-      ${supportOnly ? '' : `<span class="plan-cycle-pill">${escapeHtml(BILLING_LABELS[cycle?.id] || cycle?.label || 'Plano')}</span>`}
-      <div class="plan-price">
-        <small>${supportOnly ? 'sob medida' : cycle?.id === 'mensal' ? 'mensalidade' : 'valor do período'}</small>
-        <span class="price-main">${escapeHtml(priceText)}</span>
-        ${supportOnly ? '' : `<span class="price-subtitle">${escapeHtml(cycleSubtitleFor(cycle))}</span>`}
+    <article class="${planClass.join(' ')}">
+      ${featured ? '<span class="plan-badge">Mais escolhido</span>' : ''}
+      <header class="plan-card-head">
+        <span class="plan-kicker">${escapeHtml(planLabelFor(plan))}</span>
+        <h3>${escapeHtml(plan.nome || '')}</h3>
+      </header>
+      <p class="plan-audience">${escapeHtml(planAudienceFor(plan))}</p>
+      <span class="plan-cycle-pill">${escapeHtml(BILLING_LABELS[cycle?.id] || cycle?.label || 'Plano')}</span>
+      ${priceMarkupFor(plan, cycle, false)}
+      ${plan.destaque ? `<p class="plan-highlight">${escapeHtml(plan.destaque)}</p>` : ''}
+      <ul class="plan-feature-list">${features.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
+      <div class="plan-card-bottom">
+        <button class="btn btn-primary" type="button" data-buy-plan="${escapeAttr(plan.id)}" data-cycle-id="${escapeAttr(cycle?.id || 'mensal')}" data-support-only="0">${escapeHtml(buttonLabel)}</button>
+        <small>Ativação e cobrança protegidas pelos canais oficiais do Terê Studio.</small>
       </div>
-      ${installmentText ? `<div class="installment-line">${escapeHtml(installmentText)}</div>` : ''}
-      ${totalText ? `<div class="total-line">${escapeHtml(totalText)}</div>` : ''}
-      <p>${escapeHtml(plan.descricao || '')}</p>
-      ${plan.destaque ? `<p><strong>${escapeHtml(plan.destaque)}</strong></p>` : ''}
-      <ul>${features.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
-      <button class="btn btn-primary" type="button" data-buy-plan="${escapeAttr(plan.id)}" data-cycle-id="${escapeAttr(cycle?.id || 'mensal')}" data-support-only="${supportOnly ? '1' : '0'}">${escapeHtml(buttonLabel)}</button>
     </article>`;
 }
 
@@ -196,6 +249,8 @@ function updateBillingToggle() {
     btn.classList.toggle('is-active', active);
     btn.setAttribute('aria-selected', active ? 'true' : 'false');
   }
+  const help = document.getElementById('billingHelpText');
+  if (help) help.textContent = BILLING_HELP[selectedBillingCycleId] || BILLING_HELP.mensal;
 }
 
 document.addEventListener('click', ev => {
@@ -280,7 +335,7 @@ form?.addEventListener('submit', async ev => {
       documento: fd.get('cpf')
     }
   };
-  message.textContent = 'Preparando ativação segura no servidor...';
+  message.textContent = 'Preparando ativação segura...';
   const submit = form.querySelector('button[type="submit"]');
   submit.disabled = true;
   try {
@@ -292,7 +347,7 @@ form?.addEventListener('submit', async ev => {
     const json = await resp.json().catch(() => ({}));
     if (!resp.ok || json.ok === false) throw new Error(json.error || 'Não foi possível iniciar a ativação.');
     if (json.checkoutMode === 'configure_payment_provider') {
-      message.textContent = 'O Mercado Pago ainda não foi configurado no servidor. Abrindo suporte para concluir com segurança.';
+      message.textContent = 'O Mercado Pago ainda não foi configurado. Abrindo suporte para concluir com segurança.';
       window.location.href = whatsappUrl(CONFIG.supportWhatsappUrl, `${CONFIG.purchaseWhatsappText || 'Olá! Quero começar a usar o Terê Studio na minha loja.'}\nPlano: ${selectedPlan.nome}\nDuração: ${selectedCycle?.label || 'Mensal'}\nPedido: ${json.orderId}`);
       return;
     }

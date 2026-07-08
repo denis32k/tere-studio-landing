@@ -3,39 +3,22 @@
     "id": "inicial",
     "nome": "Inicial",
     "preco": "Sob consulta",
-    "descricao": "Para começar a usar no atendimento, pedidos, clientes, produtos, estoque e caixa.",
-    "destaque": "1 computador para a rotina essencial da loja.",
+    "label": "Para começar",
+    "audience": "Para lojas que querem organizar a rotina principal em um computador.",
+    "descricao": "Organização essencial para atendimento, pedidos, clientes, produtos, estoque e caixa.",
+    "destaque": "Ideal para começar com a operação mais organizada, sem complicar a rotina.",
     "features": [
-      "Atendimento e pedidos",
-      "Clientes e produtos",
-      "Estoque e caixa",
-      "Projetos e mockups essenciais",
-      "Ativação no PC principal"
+      "1 computador com PC principal",
+      "Atendimento, pedidos e clientes",
+      "Produtos, estoque e caixa",
+      "Prévia da personalização essencial",
+      "Produção essencial",
+      "Suporte inicial para ativação"
     ],
     "billingCycles": [
-      {
-        "id": "mensal",
-        "label": "Mensal",
-        "months": 1,
-        "preco": "Sob consulta",
-        "installments": 1
-      },
-      {
-        "id": "semestral",
-        "label": "Semestral",
-        "months": 6,
-        "preco": "Sob consulta",
-        "installments": 6,
-        "installmentsLabel": "6x sem juros"
-      },
-      {
-        "id": "anual",
-        "label": "Anual",
-        "months": 12,
-        "preco": "Sob consulta",
-        "installments": 12,
-        "installmentsLabel": "12x sem juros"
-      }
+      { "id": "mensal", "label": "Mensal", "months": 1, "preco": "Sob consulta", "installments": 1 },
+      { "id": "semestral", "label": "Semestral", "months": 6, "preco": "Sob consulta", "installments": 6, "installmentsLabel": "6x sem juros" },
+      { "id": "anual", "label": "Anual", "months": 12, "preco": "Sob consulta", "installments": 12, "installmentsLabel": "12x sem juros" }
     ],
     "buttonLabel": "Começar com Inicial"
   },
@@ -43,41 +26,23 @@
     "id": "profissional",
     "nome": "Profissional",
     "preco": "Sob consulta",
-    "descricao": "Para loja que já usa mockups, produção e atendimento com mais movimento no dia a dia.",
-    "destaque": "Plano recomendado para a rotina completa da loja.",
+    "label": "Mais escolhido",
+    "audience": "Para lojas com mais movimento, produção diária e atendimento mais completo.",
+    "descricao": "Rotina completa para loja que precisa de mais agilidade no atendimento e na produção.",
+    "destaque": "O melhor ponto de partida para quem atende, personaliza e produz todos os dias.",
     "featured": true,
     "features": [
-      "Até 2 computadores",
       "PC principal + PC cliente",
+      "Atendimento e pedidos completos",
+      "Prévia da personalização e aprovação",
+      "Produção completa",
       "IA Local e Remove.bg",
-      "Totem de autoatendimento",
-      "Mockups e produção mais rápida"
+      "Totem de autoatendimento"
     ],
     "billingCycles": [
-      {
-        "id": "mensal",
-        "label": "Mensal",
-        "months": 1,
-        "preco": "Sob consulta",
-        "installments": 1
-      },
-      {
-        "id": "semestral",
-        "label": "Semestral",
-        "months": 6,
-        "preco": "Sob consulta",
-        "installments": 6,
-        "installmentsLabel": "6x sem juros"
-      },
-      {
-        "id": "anual",
-        "label": "Anual",
-        "months": 12,
-        "preco": "Sob consulta",
-        "featured": true,
-        "installments": 12,
-        "installmentsLabel": "12x sem juros"
-      }
+      { "id": "mensal", "label": "Mensal", "months": 1, "preco": "Sob consulta", "installments": 1 },
+      { "id": "semestral", "label": "Semestral", "months": 6, "preco": "Sob consulta", "installments": 6, "installmentsLabel": "6x sem juros" },
+      { "id": "anual", "label": "Anual", "months": 12, "preco": "Sob consulta", "featured": true, "installments": 12, "installmentsLabel": "12x sem juros" }
     ],
     "buttonLabel": "Começar com Profissional"
   },
@@ -85,39 +50,22 @@
     "id": "avancado",
     "nome": "Avançado",
     "preco": "Sob consulta",
-    "descricao": "Para operação maior, com mais máquinas, produção mais intensa e visão gerencial.",
-    "destaque": "Mais PCs, mais totens e mais controle na rotina.",
+    "label": "Para crescer",
+    "audience": "Para operações com mais computadores, equipe e necessidade de mais controle.",
+    "descricao": "Mais estrutura para lojas com produção intensa, mais máquinas e visão gerencial.",
+    "destaque": "Mais computadores, mais totens e mais controle para uma operação maior.",
     "features": [
-      "Até 5 computadores",
-      "PC principal + clientes",
-      "Até 3 totens",
-      "Pedido online",
-      "Relatórios avançados"
+      "Mais computadores conforme plano",
+      "PC principal + PCs clientes",
+      "Mais totens de autoatendimento",
+      "Produção avançada",
+      "Relatórios avançados",
+      "Suporte prioritário"
     ],
     "billingCycles": [
-      {
-        "id": "mensal",
-        "label": "Mensal",
-        "months": 1,
-        "preco": "Sob consulta",
-        "installments": 1
-      },
-      {
-        "id": "semestral",
-        "label": "Semestral",
-        "months": 6,
-        "preco": "Sob consulta",
-        "installments": 6,
-        "installmentsLabel": "6x sem juros"
-      },
-      {
-        "id": "anual",
-        "label": "Anual",
-        "months": 12,
-        "preco": "Sob consulta",
-        "installments": 12,
-        "installmentsLabel": "12x sem juros"
-      }
+      { "id": "mensal", "label": "Mensal", "months": 1, "preco": "Sob consulta", "installments": 1 },
+      { "id": "semestral", "label": "Semestral", "months": 6, "preco": "Sob consulta", "installments": 6, "installmentsLabel": "6x sem juros" },
+      { "id": "anual", "label": "Anual", "months": 12, "preco": "Sob consulta", "installments": 12, "installmentsLabel": "12x sem juros" }
     ],
     "buttonLabel": "Começar com Avançado"
   },
@@ -125,7 +73,9 @@
     "id": "personalizado",
     "nome": "Personalizado",
     "preco": "Sob consulta",
-    "descricao": "Para redes, white label, implantação guiada ou necessidades especiais.",
+    "label": "Sob medida",
+    "audience": "Para redes, implantação guiada ou necessidades especiais.",
+    "descricao": "Configuração alinhada com a realidade da sua operação.",
     "destaque": "Configuração sob medida para sua operação.",
     "features": [
       "Condições personalizadas",
