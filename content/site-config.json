@@ -1,13 +1,13 @@
 {
   "brandName": "Terê Studio",
-  "headline": "Gestão para joias e semijoias personalizadas, do pedido à produção.",
-  "subheadline": "O Terê Studio organiza atendimento, pedidos, clientes, personalizações, produção e controle da loja em uma rotina simples de acompanhar.",
+  "headline": "Um programa para organizar sua loja de joias e semijoias personalizadas.",
+  "subheadline": "Do primeiro atendimento até a produção, o Terê Studio ajuda você a saber o que foi pedido, o que falta aprovar e o que já pode ser produzido.",
   "licenseServerUrl": "https://li.terepersonalizados.com.br/api",
   "downloadUrl": "https://terestudio.terepersonalizados.com.br/download/tere-studio-installer.exe",
   "supportWhatsappUrl": "https://wa.me/5535999999999",
   "supportWhatsappText": "Olá! Preciso de suporte com minha licença do Terê Studio.",
-  "purchaseWhatsappText": "Olá! Quero começar a usar o Terê Studio na minha loja.",
-  "primaryCta": "Começar teste grátis",
-  "secondaryCta": "Conhecer o sistema",
+  "purchaseWhatsappText": "Olá! Quero entender qual plano do Terê Studio combina com minha loja.",
+  "primaryCta": "Começar agora",
+  "secondaryCta": "Ver como funciona",
   "securityNotice": "Por segurança, sua licença será exibida somente aqui esta única vez. Guarde em local seguro."
 }

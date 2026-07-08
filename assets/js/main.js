@@ -32,9 +32,9 @@ const BILLING_DEFAULTS = {
   anual: { id: 'anual', label: 'Anual', months: 12, sort: 3, installments: 12 }
 };
 const BILLING_HELP = {
-  mensal: 'Mensal para começar agora, com baixo investimento inicial.',
-  semestral: 'Semestral para manter a loja organizada por 6 meses, com opção de parcelamento sem juros no cartão.',
-  anual: 'Anual para usar por 12 meses, com melhor planejamento e opção de parcelamento sem juros no cartão.'
+  mensal: 'Mensal para começar sem se comprometer por muito tempo.',
+  semestral: 'Semestral para usar por 6 meses, com opção de parcelar sem juros no cartão.',
+  anual: 'Anual para deixar o sistema ativo o ano todo, com opção de parcelar sem juros no cartão.'
 };
 let selectedBillingCycleId = 'mensal';
 let plans = [];
@@ -79,13 +79,13 @@ function formatMoneyBR(value) {
 function defaultCycles(plan) {
   if (plan.supportOnly || plan.id === 'personalizado') return [];
   const monthlyAmount = parseMoney(plan.priceAmount ?? plan.valor ?? plan.amount ?? plan.preco);
-  const monthlyText = plan.preco || (monthlyAmount ? formatMoneyBR(monthlyAmount) : 'Sob consulta');
+  const monthlyText = plan.preco || (monthlyAmount ? formatMoneyBR(monthlyAmount) : 'Fale com suporte');
   const semestralAmount = parseMoney(plan.precoSemestral ?? plan.semestral ?? plan.valorSemestral ?? plan.priceAmountSemestral);
   const anualAmount = parseMoney(plan.precoAnual ?? plan.anual ?? plan.valorAnual ?? plan.priceAmountAnual);
   return [
     { ...BILLING_DEFAULTS.mensal, preco: monthlyText, priceAmount: monthlyAmount },
-    { ...BILLING_DEFAULTS.semestral, preco: semestralAmount ? formatMoneyBR(semestralAmount) : 'Sob consulta', priceAmount: semestralAmount, installments: 6 },
-    { ...BILLING_DEFAULTS.anual, preco: anualAmount ? formatMoneyBR(anualAmount) : 'Sob consulta', priceAmount: anualAmount, installments: 12 },
+    { ...BILLING_DEFAULTS.semestral, preco: semestralAmount ? formatMoneyBR(semestralAmount) : 'Fale com suporte', priceAmount: semestralAmount, installments: 6 },
+    { ...BILLING_DEFAULTS.anual, preco: anualAmount ? formatMoneyBR(anualAmount) : 'Fale com suporte', priceAmount: anualAmount, installments: 12 },
   ];
 }
 
@@ -102,7 +102,7 @@ function planCycles(plan) {
       id,
       label: cycle.label || cycle.nome || base.label || BILLING_LABELS[id] || id,
       months: Number(cycle.months || cycle.meses || base.months || 1),
-      preco: String(cycle.preco || cycle.price || cycle.valorLabel || '').trim() || (amount ? formatMoneyBR(amount) : 'Sob consulta'),
+      preco: String(cycle.preco || cycle.price || cycle.valorLabel || '').trim() || (amount ? formatMoneyBR(amount) : 'Fale com suporte'),
       priceAmount: amount,
       installments: Number(cycle.installments || cycle.parcelas || cycle.maxInstallments || cycle.maxParcelas || base.installments || 1),
       sort: Number(cycle.sort || base.sort || 99),
@@ -113,11 +113,11 @@ function planCycles(plan) {
 
 function selectedCycleFor(plan) {
   const cycles = planCycles(plan);
-  return cycles.find(c => c.id === selectedBillingCycleId) || cycles[0] || { ...BILLING_DEFAULTS.mensal, preco: plan.preco || 'Sob consulta' };
+  return cycles.find(c => c.id === selectedBillingCycleId) || cycles[0] || { ...BILLING_DEFAULTS.mensal, preco: plan.preco || 'Fale com suporte' };
 }
 
 function priceTextFor(plan, cycle) {
-  return cycle?.preco || plan.preco || 'Sob consulta';
+  return cycle?.preco || plan.preco || 'Fale com suporte';
 }
 
 function installmentTextFor(cycle) {
@@ -131,9 +131,9 @@ function installmentTextFor(cycle) {
 
 function cycleSubtitleFor(cycle) {
   if (!cycle) return '';
-  if (cycle.id === 'mensal') return 'Pagamento mensal para começar com baixo investimento.';
-  if (cycle.id === 'semestral') return 'Plano de 6 meses, com opção de parcelar sem juros no cartão.';
-  if (cycle.id === 'anual') return 'Plano de 1 ano, com opção de parcelar sem juros no cartão.';
+  if (cycle.id === 'mensal') return 'Pagamento mensal.';
+  if (cycle.id === 'semestral') return '6 meses de uso, com opção de parcelar sem juros.';
+  if (cycle.id === 'anual') return '12 meses de uso, com opção de parcelar sem juros.';
   return cycle.label || '';
 }
 
@@ -157,16 +157,16 @@ function planLabelFor(plan) {
 function planAudienceFor(plan) {
   if (plan.audience || plan.publico) return plan.audience || plan.publico;
   const id = String(plan.id || '').toLowerCase();
-  if (id === 'inicial') return 'Para lojas que querem organizar a rotina principal em um computador.';
-  if (id === 'profissional') return 'Para lojas com mais movimento, produção diária e atendimento mais completo.';
-  if (id === 'avancado' || id === 'avançado') return 'Para operações com mais computadores, equipe e necessidade de mais controle.';
+  if (id === 'inicial') return 'Para quem quer tirar os pedidos da bagunça usando um computador.';
+  if (id === 'profissional') return 'Para loja com movimento diário, pedidos personalizados e produção acontecendo todo dia.';
+  if (id === 'avancado' || id === 'avançado') return 'Para loja com equipe, mais computadores e rotina mais pesada.';
   if (id === 'personalizado') return 'Para redes, implantação guiada ou necessidades especiais.';
-  return plan.descricao || 'Para organizar a rotina da loja com mais clareza.';
+  return plan.descricao || 'Para deixar o dia a dia da loja mais fácil de acompanhar.';
 }
 
 function priceMarkupFor(plan, cycle, supportOnly) {
   if (supportOnly) {
-    return `<div class="plan-price premium-price"><small>plano sob medida</small><span class="price-main">${escapeHtml(plan.preco || 'Sob consulta')}</span><span class="price-subtitle">Condições alinhadas pelo suporte.</span></div>`;
+    return `<div class="plan-price premium-price"><small>plano sob medida</small><span class="price-main">${escapeHtml(plan.preco || 'Fale com suporte')}</span><span class="price-subtitle">A gente entende sua necessidade pelo suporte.</span></div>`;
   }
   const priceText = priceTextFor(plan, cycle);
   const installmentText = installmentTextFor(cycle);
@@ -174,7 +174,7 @@ function priceMarkupFor(plan, cycle, supportOnly) {
   if (cycle?.id !== 'mensal' && Number(cycle?.priceAmount || 0) > 0 && installmentText) {
     return `<div class="plan-price premium-price installment-price"><small>${escapeHtml(cycle.label || 'Plano')}</small><span class="price-main">${escapeHtml(installmentText)}</span><span class="price-subtitle">${escapeHtml(totalText || priceText)}</span></div>`;
   }
-  return `<div class="plan-price premium-price"><small>${cycle?.id === 'mensal' ? 'mensalidade' : 'valor do período'}</small><span class="price-main">${escapeHtml(priceText)}${cycle?.id === 'mensal' && priceText !== 'Sob consulta' ? '<em>/mês</em>' : ''}</span>${installmentText ? `<span class="price-subtitle">${escapeHtml(installmentText)}</span>` : `<span class="price-subtitle">${escapeHtml(cycleSubtitleFor(cycle))}</span>`}</div>`;
+  return `<div class="plan-price premium-price"><small>${cycle?.id === 'mensal' ? 'mensalidade' : 'valor do período'}</small><span class="price-main">${escapeHtml(priceText)}${cycle?.id === 'mensal' && priceText !== 'Fale com suporte' ? '<em>/mês</em>' : ''}</span>${installmentText ? `<span class="price-subtitle">${escapeHtml(installmentText)}</span>` : `<span class="price-subtitle">${escapeHtml(cycleSubtitleFor(cycle))}</span>`}</div>`;
 }
 
 function renderPlan(plan) {
@@ -216,15 +216,15 @@ function renderPlan(plan) {
       <ul class="plan-feature-list">${features.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul>
       <div class="plan-card-bottom">
         <button class="btn btn-primary" type="button" data-buy-plan="${escapeAttr(plan.id)}" data-cycle-id="${escapeAttr(cycle?.id || 'mensal')}" data-support-only="0">${escapeHtml(buttonLabel)}</button>
-        <small>Ativação e cobrança protegidas pelos canais oficiais do Terê Studio.</small>
+        <small>Compra e licença pelo Terê Studio.</small>
       </div>
     </article>`;
 }
 
 function renderPlansEmpty() {
   return `<div class="plans-empty">
-    <h3>Não conseguimos carregar os planos agora.</h3>
-    <p>Fale com o suporte para começar o teste grátis, ativar um plano ou confirmar valores atualizados.</p>
+    <h3>Os planos não carregaram agora.</h3>
+    <p>Fale com o suporte para ver os valores e escolher o melhor plano.</p>
     <a data-support-link href="${escapeAttr(whatsappUrl(CONFIG.supportWhatsappUrl, CONFIG.purchaseWhatsappText || 'Olá! Quero começar a usar o Terê Studio na minha loja.'))}">Falar com suporte</a>
   </div>`;
 }
@@ -336,7 +336,7 @@ form?.addEventListener('submit', async ev => {
       documento: fd.get('cpf')
     }
   };
-  message.textContent = 'Preparando ativação segura...';
+  message.textContent = 'Preparando tudo...';
   const submit = form.querySelector('button[type="submit"]');
   submit.disabled = true;
   try {
@@ -346,16 +346,16 @@ form?.addEventListener('submit', async ev => {
       body: JSON.stringify(payload)
     });
     const json = await resp.json().catch(() => ({}));
-    if (!resp.ok || json.ok === false) throw new Error(json.error || 'Não foi possível iniciar a ativação.');
+    if (!resp.ok || json.ok === false) throw new Error(json.error || 'Não foi possível continuar agora.');
     if (json.checkoutMode === 'configure_payment_provider') {
-      message.textContent = 'O Mercado Pago ainda não foi configurado. Abrindo suporte para concluir com segurança.';
+      message.textContent = 'O pagamento online ainda não está disponível. Vamos abrir o suporte para continuar.';
       window.location.href = whatsappUrl(CONFIG.supportWhatsappUrl, `${CONFIG.purchaseWhatsappText || 'Olá! Quero começar a usar o Terê Studio na minha loja.'}\nPlano: ${selectedPlan.nome}\nDuração: ${selectedCycle?.label || 'Mensal'}\nPedido: ${json.orderId}`);
       return;
     }
-    message.textContent = 'Abrindo pagamento seguro...';
+    message.textContent = 'Abrindo pagamento...';
     window.location.href = json.checkoutUrl || json.successUrl || 'sucesso.html?pedido=' + encodeURIComponent(json.orderId);
   } catch (err) {
-    message.textContent = err instanceof Error ? err.message : 'Não foi possível iniciar a ativação.';
+    message.textContent = err instanceof Error ? err.message : 'Não foi possível continuar agora.';
   } finally {
     submit.disabled = false;
   }

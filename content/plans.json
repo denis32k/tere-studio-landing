@@ -5,16 +5,16 @@
     "preco": "R$ 79,90",
     "priceAmount": 79.9,
     "label": "Para começar",
-    "audience": "Para lojas que querem organizar a rotina principal em um computador.",
-    "descricao": "Organização essencial para atendimento, pedidos, clientes, produtos, estoque e caixa.",
+    "audience": "Para quem quer tirar os pedidos da bagunça usando um computador.",
+    "descricao": "O básico para organizar pedidos, clientes, produtos, estoque e caixa.",
     "destaque": "Para começar sem complicar.",
     "features": [
-      "1 computador com PC principal",
-      "Atendimento, pedidos e clientes",
+      "1 computador",
+      "Pedidos e clientes",
       "Produtos, estoque e caixa",
       "Prévia da gravação essencial",
-      "Produção essencial",
-      "Suporte inicial para ativação"
+      "Fila de produção simples",
+      "Ajuda para ativar e começar"
     ],
     "billingCycles": [
       {
@@ -52,17 +52,17 @@
     "preco": "R$ 129,90",
     "priceAmount": 129.9,
     "label": "Mais escolhido",
-    "audience": "Para lojas com mais movimento, produção diária e atendimento mais completo.",
-    "descricao": "Rotina completa para loja que precisa de mais agilidade no atendimento e na produção.",
-    "destaque": "O melhor ponto de partida para quem atende, personaliza e produz todos os dias.",
+    "audience": "Para loja com movimento diário, pedidos personalizados e produção acontecendo todo dia.",
+    "descricao": "Mais completo para atender, confirmar a personalização e produzir com menos retrabalho.",
+    "destaque": "O plano que mais combina com a rotina de uma loja em funcionamento.",
     "featured": true,
     "features": [
-      "PC principal + PC cliente",
-      "Atendimento e pedidos completos",
+      "2 computadores na mesma loja",
+      "Pedidos e atendimento completos",
       "Prévia da gravação e aprovação",
-      "Produção completa",
-      "IA Local e Remove.bg",
-      "Totem horizontal de autoatendimento"
+      "Produção mais organizada",
+      "Remoção de fundo",
+      "Totem horizontal"
     ],
     "billingCycles": [
       {
@@ -101,12 +101,12 @@
     "preco": "R$ 199,90",
     "priceAmount": 199.9,
     "label": "Para crescer",
-    "audience": "Para operações com mais computadores, equipe e necessidade de mais controle.",
-    "descricao": "Mais estrutura para lojas com produção intensa, mais máquinas e visão gerencial.",
-    "destaque": "Mais computadores, mais Totens e mais controle para uma operação maior.",
+    "audience": "Para loja com equipe, mais computadores e rotina mais pesada.",
+    "descricao": "Mais estrutura para acompanhar uma operação maior.",
+    "destaque": "Para quando a loja precisa de mais acesso, mais Totem e suporte mais próximo.",
     "features": [
       "Mais computadores conforme plano",
-      "PC principal + PCs clientes",
+      "Acesso para equipe",
       "Mais Totens horizontais",
       "Produção avançada",
       "Relatórios avançados",
@@ -147,14 +147,14 @@
     "nome": "Personalizado",
     "preco": "Sob consulta",
     "label": "Sob medida",
-    "audience": "Para redes, implantação guiada ou necessidades especiais.",
-    "descricao": "Configuração alinhada com a realidade da sua operação.",
-    "destaque": "Configuração sob medida para sua operação.",
+    "audience": "Para lojas com mais de uma unidade ou uma necessidade diferente dos planos prontos.",
+    "descricao": "A gente entende sua rotina e monta uma condição sob medida.",
+    "destaque": "Para operações fora do padrão.",
     "features": [
-      "Condições personalizadas",
-      "Ajustes por operação",
-      "Suporte de implantação",
-      "Escala para mais unidades"
+      "Condições combinadas com suporte",
+      "Ajustes conforme a operação",
+      "Ajuda na implantação",
+      "Mais unidades ou equipe maior"
     ],
     "buttonLabel": "Falar com suporte",
     "supportOnly": true
