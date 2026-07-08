@@ -1,0 +1,16 @@
+{
+  "texts": {
+    "heroTitle": "Gestão para joias e semijoias personalizadas, do pedido à produção.",
+    "heroSubtitle": "Organize atendimento, pedidos, prévia da gravação, produção, totem e controle da loja em uma rotina simples de acompanhar.",
+    "previewTitle": "Prévia da gravação antes de produzir.",
+    "previewText": "O cliente entende melhor a personalização, sua equipe confirma o pedido com mais segurança e a produção recebe a informação do jeito certo.",
+    "totemTitle": "Seu cliente começa o pedido direto no tablet.",
+    "totemText": "O Totem ajuda a loja a atender com mais agilidade, mantendo uma experiência simples, bonita e organizada. Por enquanto, a landing trata o Totem no formato horizontal usado hoje."
+  },
+  "media": {
+    "heroBackgroundUrl": "assets/img/banner-hero-brasil.webp",
+    "previewBackgroundUrl": "assets/img/banner-previa-gravacao.webp",
+    "totemBackgroundUrl": "assets/img/banner-totem-horizontal.webp"
+  },
+  "testimonials": []
+}
