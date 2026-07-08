@@ -3,84 +3,6 @@ import { loadConfig, apiUrl, setSupportLinks, whatsappUrl } from './common.js';
 let CONFIG = await loadConfig();
 setSupportLinks(CONFIG);
 
-
-async function loadLandingContent(config) {
-  const fallback = {
-    texts: {
-      heroTitle: 'Gestão para joias e semijoias personalizadas, do pedido à produção.',
-      heroSubtitle: 'Organize atendimento, pedidos, prévia da gravação, produção, totem e controle da loja em uma rotina simples de acompanhar.',
-      previewTitle: 'Prévia da gravação antes de produzir.',
-      previewText: 'O cliente entende melhor a personalização, sua equipe confirma o pedido com mais segurança e a produção recebe a informação do jeito certo.',
-      totemTitle: 'Seu cliente começa o pedido direto no tablet.',
-      totemText: 'O Totem ajuda a loja a atender com mais agilidade, mantendo uma experiência simples, bonita e organizada. Por enquanto, a landing trata o Totem no formato horizontal usado hoje.'
-    },
-    media: {},
-    testimonials: []
-  };
-  const urls = [apiUrl(config, '/public/landing'), 'content/landing-content.json'];
-  for (const url of urls) {
-    try {
-      const resp = await fetch(url, { cache: 'no-store' });
-      const json = await resp.json();
-      if (resp.ok && json && (json.ok || json.texts || json.media || json.testimonials)) {
-        const data = json.landing || json;
-        return {
-          texts: { ...fallback.texts, ...(data.texts || {}) },
-          media: { ...(data.media || {}) },
-          testimonials: Array.isArray(data.testimonials) ? data.testimonials : []
-        };
-      }
-    } catch {}
-  }
-  return fallback;
-}
-function applyLandingContent(content) {
-  const texts = content.texts || {};
-  document.querySelectorAll('[data-landing-text]').forEach(el => {
-    const key = el.dataset.landingText;
-    if (texts[key]) el.textContent = texts[key];
-  });
-  const media = content.media || {};
-  document.querySelectorAll('[data-landing-media]').forEach(img => {
-    const key = img.dataset.landingMedia;
-    const url = media[key + 'Url'] || media[key] || '';
-    if (url) img.src = url;
-  });
-  document.querySelectorAll('[data-landing-screen]').forEach(img => {
-    const key = img.dataset.landingScreen;
-    const url = media[key + 'Url'] || media[key] || '';
-    if (url) {
-      img.src = url;
-      img.closest('.device')?.classList.add('has-screen');
-    } else {
-      img.closest('.device')?.classList.remove('has-screen');
-    }
-  });
-  renderTestimonials(content.testimonials || []);
-}
-let testimonialIndex = 0;
-function renderTestimonials(items = []) {
-  const active = items.filter(item => item && item.ativo !== false && (item.texto || item.text) && item.nome).sort((a,b)=>Number(a.ordem||0)-Number(b.ordem||0));
-  const section = document.getElementById('depoimentos');
-  const track = document.querySelector('[data-testimonial-track]');
-  const dots = document.querySelector('[data-testimonial-dots]');
-  const nav = document.querySelector('[data-testimonials-nav]');
-  if (!section || !track || !dots) return;
-  if (!active.length) { section.hidden = true; if (nav) nav.hidden = true; return; }
-  section.hidden = false; if (nav) nav.hidden = false;
-  const avatar = item => item.fotoUrl || item.photoUrl || item.foto || 'assets/img/tere-studio-logo.webp';
-  track.innerHTML = active.map((item, index) => `<article class="testimonial-card ${index === testimonialIndex ? 'active' : ''}"><img src="${escapeAttr(avatar(item))}" alt="${escapeAttr(item.nome)}"/><div><blockquote>“${escapeHtml(item.texto || item.text)}”</blockquote><strong>${escapeHtml(item.nome)}</strong><small>${escapeHtml([item.loja, item.cidade].filter(Boolean).join(' · '))}</small></div></article>`).join('');
-  dots.innerHTML = active.map((_, index) => `<button class="${index === testimonialIndex ? 'active' : ''}" type="button" data-testimonial-dot="${index}" aria-label="Ver depoimento ${index+1}"></button>`).join('');
-  document.querySelector('[data-testimonial-prev]')?.addEventListener('click', () => { testimonialIndex = (testimonialIndex - 1 + active.length) % active.length; renderTestimonials(active); });
-  document.querySelector('[data-testimonial-next]')?.addEventListener('click', () => { testimonialIndex = (testimonialIndex + 1) % active.length; renderTestimonials(active); });
-  dots.querySelectorAll('[data-testimonial-dot]').forEach(btn => btn.addEventListener('click', () => { testimonialIndex = Number(btn.dataset.testimonialDot || 0); renderTestimonials(active); }));
-}
-function escapeHtml(value) { return String(value ?? '').replace(/[&<>'"]/g, ch => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', "'":'&#39;', '"':'&quot;' }[ch])); }
-function escapeAttr(value) { return escapeHtml(value); }
-
-const LANDING_CONTENT = await loadLandingContent(CONFIG);
-applyLandingContent(LANDING_CONTENT);
-
 for (const el of document.querySelectorAll('[data-config]')) {
   const key = el.dataset.config;
   if (CONFIG[key]) el.textContent = CONFIG[key];
@@ -441,8 +363,10 @@ form?.addEventListener('submit', async ev => {
 
 // RC61.7 — entrada suave das seções e cards
 const revealTargets = [
-  '.quick-cards article',
-  '.spotlight .spotlight-image', '.spotlight .spotlight-copy',
+  '.trust-strip .section-shell',
+  '.who-section .section-title', '.who-grid article',
+  '.before-after .section-title', '.compare-cards article',
+  '.emotion-strip .section-shell',
   '.modules-section .section-title', '.module-grid article',
   '.inside-head', '.screen-card',
   '.pricing-hero', '.billing-panel', '.pricing-card', '.comparison-card', '.plan-faq-grid article',

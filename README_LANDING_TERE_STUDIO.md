@@ -78,3 +78,7 @@ Refino visual aplicado em cima da RC61.5 para deixar a landing com aparência ma
 ## RC61.7 — Toque humano e efeitos premium
 
 Adiciona movimento suave, brilho no topo, microinterações, entrada de seções ao rolar e uma linha visual de rotina Atendimento → Pedido → Prévia → Produção. Não altera checkout, planos dinâmicos nem integração com servidor.
+
+
+## RC61.9
+Valores visíveis nos planos e fallback corrigido. Os preços são provisórios e devem ser confirmados no servidor/painel antes de publicar.

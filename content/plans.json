@@ -2,30 +2,55 @@
   {
     "id": "inicial",
     "nome": "Inicial",
-    "preco": "Sob consulta",
+    "preco": "R$ 79,90",
+    "priceAmount": 79.9,
     "label": "Para começar",
     "audience": "Para lojas que querem organizar a rotina principal em um computador.",
     "descricao": "Organização essencial para atendimento, pedidos, clientes, produtos, estoque e caixa.",
-    "destaque": "Ideal para começar com a operação mais organizada, sem complicar a rotina.",
+    "destaque": "Para começar sem complicar.",
     "features": [
       "1 computador com PC principal",
       "Atendimento, pedidos e clientes",
       "Produtos, estoque e caixa",
-      "Prévia da personalização essencial",
+      "Prévia da gravação essencial",
       "Produção essencial",
       "Suporte inicial para ativação"
     ],
     "billingCycles": [
-      { "id": "mensal", "label": "Mensal", "months": 1, "preco": "Sob consulta", "installments": 1 },
-      { "id": "semestral", "label": "Semestral", "months": 6, "preco": "Sob consulta", "installments": 6, "installmentsLabel": "6x sem juros" },
-      { "id": "anual", "label": "Anual", "months": 12, "preco": "Sob consulta", "installments": 12, "installmentsLabel": "12x sem juros" }
+      {
+        "id": "mensal",
+        "label": "Mensal",
+        "months": 1,
+        "preco": "R$ 79,90",
+        "priceAmount": 79.9,
+        "installments": 1
+      },
+      {
+        "id": "semestral",
+        "label": "Semestral",
+        "months": 6,
+        "preco": "R$ 479,40",
+        "priceAmount": 479.4,
+        "installments": 6,
+        "installmentsLabel": "6x de R$ 79,90 sem juros"
+      },
+      {
+        "id": "anual",
+        "label": "Anual",
+        "months": 12,
+        "preco": "R$ 958,80",
+        "priceAmount": 958.8,
+        "installments": 12,
+        "installmentsLabel": "12x de R$ 79,90 sem juros"
+      }
     ],
     "buttonLabel": "Começar com Inicial"
   },
   {
     "id": "profissional",
     "nome": "Profissional",
-    "preco": "Sob consulta",
+    "preco": "R$ 129,90",
+    "priceAmount": 129.9,
     "label": "Mais escolhido",
     "audience": "Para lojas com mais movimento, produção diária e atendimento mais completo.",
     "descricao": "Rotina completa para loja que precisa de mais agilidade no atendimento e na produção.",
@@ -34,38 +59,86 @@
     "features": [
       "PC principal + PC cliente",
       "Atendimento e pedidos completos",
-      "Prévia da personalização e aprovação",
+      "Prévia da gravação e aprovação",
       "Produção completa",
       "IA Local e Remove.bg",
-      "Totem de autoatendimento"
+      "Totem horizontal de autoatendimento"
     ],
     "billingCycles": [
-      { "id": "mensal", "label": "Mensal", "months": 1, "preco": "Sob consulta", "installments": 1 },
-      { "id": "semestral", "label": "Semestral", "months": 6, "preco": "Sob consulta", "installments": 6, "installmentsLabel": "6x sem juros" },
-      { "id": "anual", "label": "Anual", "months": 12, "preco": "Sob consulta", "featured": true, "installments": 12, "installmentsLabel": "12x sem juros" }
+      {
+        "id": "mensal",
+        "label": "Mensal",
+        "months": 1,
+        "preco": "R$ 129,90",
+        "priceAmount": 129.9,
+        "installments": 1
+      },
+      {
+        "id": "semestral",
+        "label": "Semestral",
+        "months": 6,
+        "preco": "R$ 779,40",
+        "priceAmount": 779.4,
+        "installments": 6,
+        "installmentsLabel": "6x de R$ 129,90 sem juros"
+      },
+      {
+        "id": "anual",
+        "label": "Anual",
+        "months": 12,
+        "preco": "R$ 1.558,80",
+        "priceAmount": 1558.8,
+        "featured": true,
+        "installments": 12,
+        "installmentsLabel": "12x de R$ 129,90 sem juros"
+      }
     ],
     "buttonLabel": "Começar com Profissional"
   },
   {
     "id": "avancado",
     "nome": "Avançado",
-    "preco": "Sob consulta",
+    "preco": "R$ 199,90",
+    "priceAmount": 199.9,
     "label": "Para crescer",
     "audience": "Para operações com mais computadores, equipe e necessidade de mais controle.",
     "descricao": "Mais estrutura para lojas com produção intensa, mais máquinas e visão gerencial.",
-    "destaque": "Mais computadores, mais totens e mais controle para uma operação maior.",
+    "destaque": "Mais computadores, mais Totens e mais controle para uma operação maior.",
     "features": [
       "Mais computadores conforme plano",
       "PC principal + PCs clientes",
-      "Mais totens de autoatendimento",
+      "Mais Totens horizontais",
       "Produção avançada",
       "Relatórios avançados",
       "Suporte prioritário"
     ],
     "billingCycles": [
-      { "id": "mensal", "label": "Mensal", "months": 1, "preco": "Sob consulta", "installments": 1 },
-      { "id": "semestral", "label": "Semestral", "months": 6, "preco": "Sob consulta", "installments": 6, "installmentsLabel": "6x sem juros" },
-      { "id": "anual", "label": "Anual", "months": 12, "preco": "Sob consulta", "installments": 12, "installmentsLabel": "12x sem juros" }
+      {
+        "id": "mensal",
+        "label": "Mensal",
+        "months": 1,
+        "preco": "R$ 199,90",
+        "priceAmount": 199.9,
+        "installments": 1
+      },
+      {
+        "id": "semestral",
+        "label": "Semestral",
+        "months": 6,
+        "preco": "R$ 1.199,40",
+        "priceAmount": 1199.4,
+        "installments": 6,
+        "installmentsLabel": "6x de R$ 199,90 sem juros"
+      },
+      {
+        "id": "anual",
+        "label": "Anual",
+        "months": 12,
+        "preco": "R$ 2.398,80",
+        "priceAmount": 2398.8,
+        "installments": 12,
+        "installmentsLabel": "12x de R$ 199,90 sem juros"
+      }
     ],
     "buttonLabel": "Começar com Avançado"
   },
