@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Recuperar licença · Terê Studio</title>
-  <meta name="description" content="Recupere sua licença Terê Studio com segurança pelo suporte oficial." />
+  <meta name="description" content="Recupere sua licença Terê Studio com segurança, direto pelo e-mail cadastrado." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,28 +12,27 @@
 </head>
 <body class="success-body">
   <main class="success-wrap">
-    <section class="success-card simple-page-card">
+    <section class="success-card" id="recoverCard">
       <img src="assets/img/tere-studio-logo.png" alt="Terê Studio" class="success-logo" />
       <span class="eyebrow">Suporte oficial</span>
-      <h1>Recuperação de licença</h1>
-      <p>Para proteger sua conta, a recuperação da licença é feita pelo suporte. Tenha em mãos os dados usados na ativação.</p>
-      <div class="status-box">
-        <strong>Informe ao suporte:</strong>
-        <ul>
-          <li>Nome do responsável;</li>
-          <li>Nome da loja;</li>
-          <li>WhatsApp usado na ativação;</li>
-          <li>E-mail usado na ativação;</li>
-          <li>Plano escolhido, se lembrar.</li>
-        </ul>
-      </div>
-      <div class="status-box">Não compartilhe imagens públicas da licença. O suporte irá localizar seus dados no servidor e orientar a reativação.</div>
+      <h1 id="recoverTitle">Recuperar licença</h1>
+      <p id="recoverText">Informe o CPF e o e-mail usados na ativação. Se baterem com um cadastro, mandamos um link de confirmação para o seu e-mail.</p>
+
+      <form id="recoverForm" class="status-box" novalidate>
+        <label for="recoverEmail" style="display:block;margin-bottom:6px;"><small>E-mail cadastrado</small></label>
+        <input id="recoverEmail" name="email" type="email" required placeholder="seuemail@exemplo.com" style="width:100%;margin-bottom:14px;" />
+        <label for="recoverCpf" style="display:block;margin-bottom:6px;"><small>CPF cadastrado</small></label>
+        <input id="recoverCpf" name="cpf" type="text" required placeholder="000.000.000-00" style="width:100%;margin-bottom:14px;" />
+        <button class="btn btn-primary full" id="recoverSubmit" type="submit">Enviar link de recuperação</button>
+      </form>
+      <div class="status-box" id="recoverMessage" hidden></div>
+
       <div class="success-actions">
-        <a class="btn btn-primary" data-support-link href="#">Falar no WhatsApp</a>
         <a class="btn btn-secondary" href="index.html">Voltar</a>
+        <a class="btn btn-primary" data-support-link href="#">Falar no WhatsApp</a>
       </div>
     </section>
   </main>
-  <script src="assets/js/support.js" type="module"></script>
+  <script src="assets/js/recover.js" type="module"></script>
 </body>
 </html>
